@@ -88,10 +88,7 @@ function Attendance() {
 
   return (
     <div className="p-4">
-      <h1 className="text-center text-xl font-black">My Attendance Records</h1>
-        <div>
-          <Attend/>
-        </div>
+      <h1 className="text-center text-xl font-black">Attendance Records</h1>
         <Spacer y={4}/>
         <div>
           <Input

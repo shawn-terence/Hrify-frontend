@@ -56,10 +56,6 @@ const AttendanceC = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
   const formatTime = (timeString) => {
     if (!timeString) return 'N/A'; // Return 'N/A' if no time is provided
 

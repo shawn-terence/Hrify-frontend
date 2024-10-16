@@ -1,0 +1,196 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  p{
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .login-container {
+    position: relative;
+    top:20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center; 
+  }
+  #login-card{
+    /* background-color:#2f69ddd7; */
+    background-image: linear-gradient(to right top, #13213d, #173262, #1c4489, #2356b2, #2f69ddd7);
+    width: 300px;
+  }
+    
+  .bg-danger {
+      /* Example styling for the card */
+      background-color: #ff4d4f; /* Background color for the card */
+      min-width: 22.2rem;
+      max-height: 25rem;
+      padding: 10px;
+      color: white; /* Text color for the card */
+    }
+  #linkbox{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 3rem;
+  }
+  .adsidebar{
+    background-color:#13213d;
+    position: fixed;
+    width: 190px;
+    height: 100vh;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+  .sidebar {
+    position: fixed;
+    top: -20px;
+    width: 160px;
+    height: 100vh;
+    background-color:  #203c79;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+  #Logo{
+    background-color: white;
+  }
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .links{
+    font-weight: 700;
+  }
+  
+  .sidebar,.adsidebar ul li {
+    margin: 20px 0;
+  }
+  #side-footer{
+    position: absolute;
+    bottom: 1rem;
+    left: 1.8rem;
+  }
+  .btnD{
+    background-color:rgba(201, 23, 23, 0.938);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    min-width:100px;
+  }
+  .btnA{
+    background-color:rgb(70, 115, 73);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    min-width:100px;
+  
+  }
+  .btnM{
+    font-weight: 700;
+    min-width:100px;
+    background-color: #273d69;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  /* Navbar for mobile */
+  .adnavbar-mobile{
+    display: none;
+    width: 100%;
+    height: 5rem;
+    background-color:#13213d;
+    z-index: 1000; 
+  }
+  .navbar-mobile {
+    display: none;
+    width: 100%;
+    height: 5rem;
+    background-color: #324161;
+    z-index: 1000; 
+  }
+  
+  .navbar-header,.adnavbar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
+  }
+  
+  .menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  /* Dropdown menu for mobile */
+  .dropdown,.addropdown {
+    list-style-type: none;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    z-index: 1000; /* Increase z-index */
+    background: rgba( 255, 255, 255, 0.3 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 17px );
+    -webkit-backdrop-filter: blur( 17px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+  
+  .dropdown li {
+    margin: 10px 0;
+  }
+  
+  .dropdown li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  
+  @media screen and (max-width: 890px) {
+    .sidebar,.adsidebar {
+      display: none;
+    }
+  
+    .navbar-mobile,.adnavbar-mobile {
+      display: block;
+  
+    }
+  }
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    /* Hide sidebar and show mobile navbar */
+    .header{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  #profile-card{
+  width: 100%;
+  }
+  @media (min-width: 950px){
+    #mainCont{
+      margin-left: 19vw;
+    }
+    #login-card{
+      width: 400px;
+    }
+  }

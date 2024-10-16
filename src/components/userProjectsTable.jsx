@@ -67,7 +67,7 @@ const UserProjectsTable = () => {
         <TableColumn>END DATE</TableColumn>
         <TableColumn>Manager</TableColumn>
       </TableHeader>
-      <TableBody>
+      <TableBody emptyContent={"no projects available"}>
         {projects.map((project) => (
           <TableRow key={project.id}>
             <TableCell>{project.name}</TableCell>
