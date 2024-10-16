@@ -1,144 +1,104 @@
-import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
-import { Link } from "@nextui-org/link";
-import { Input } from "@nextui-org/input";
-import {
-  Navbar as NextUINavbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-} from "@nextui-org/navbar";
-import { link as linkStyles } from "@nextui-org/theme";
-import clsx from "clsx";
+//@ts-nocheck
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {Image} from "@nextui-org/react";
+import { Spacer } from "@nextui-org/react";
+import '../styles/app.css';
 
-import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-} from "@/components/icons";
-import { Logo } from "@/components/icons";
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-export const Navbar = () => {
-  const searchInput = (
-    <Input
-      aria-label="Search"
-      classNames={{
-        inputWrapper: "bg-default-100",
-        input: "text-sm",
-      }}
-      endContent={
-        <Kbd className="hidden lg:inline-block" keys={["command"]}>
-          K
-        </Kbd>
-      }
-      labelPlacement="outside"
-      placeholder="Search..."
-      startContent={
-        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-      }
-      type="search"
-    />
-  );
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand className="gap-3 max-w-fit">
-          <Link
-            className="flex justify-start items-center gap-1"
-            color="foreground"
-            href="/"
-          >
-            <Logo />
-            <p className="font-bold text-inherit">ACME</p>
-          </Link>
-        </NavbarBrand>
-        <div className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <Link
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </Link>
-            </NavbarItem>
-          ))}
+    <>
+          {/* Sidebar for desktop */}
+          <div className={`sidebar ${menuOpen ? "open" : ""} `}>
+        <div  className=" font-bold text-base  flex flex-col">
+          <div className="flex flex-col items-center">
+            <Image id="Logo" width={80}  radius="full" src='https://cdn4.iconfinder.com/data/icons/online-shop-7/128/team-people-group-256.png'/>
+          </div>
+          <Spacer y={2}/>
+          <div className="">
+            <Spacer y={28}/>
+            <p className="text-lg">
+              <Link to="/emp/emphome">Home</Link>
+            </p>
+            <Spacer y={4}/>
+            <p className="text-lg">
+              <Link to="/emp/leave">Leave</Link>
+            </p>
+            <Spacer y={4}/>
+            <p className="text-lg">
+              <Link to="/emp/reports"> Reports</Link>
+            </p>
+            <Spacer y={4}/>
+            <p className="text-lg">
+              <Link to="/emp/attendance">Attendance</Link>
+            </p>
+            <Spacer y={4}/>
+            <p className="text-lg">
+              <Link to="/emp/projects">Projects</Link>
+            </p>
+          </div>
         </div>
-      </NavbarContent>
+        <div id="side-footer" className="flex flex-col gap-8 items-center">
+            <Link to="/emp/profile" className="pr-2">
+                <Image width={48} src="https://cdn0.iconfinder.com/data/icons/business-and-management-flat-8/24/PROFILE_profile_picture_profile_icon_user_profile-256.png"/>
+            </Link>
+            <Link to="/">
+            <Image width={48} src="https://cdn4.iconfinder.com/data/icons/internet-security-flat-2/32/Internet_Security_entrance_exit_log_out_arrow-256.png"/>
+            </Link>
+          </div>
+      </div>
 
-      <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
-        justify="end"
-      >
-        <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal href={siteConfig.links.twitter} title="Twitter">
-            <TwitterIcon className="text-default-500" />
-          </Link>
-          <Link isExternal href={siteConfig.links.discord} title="Discord">
-            <DiscordIcon className="text-default-500" />
-          </Link>
-          <Link isExternal href={siteConfig.links.github} title="GitHub">
-            <GithubIcon className="text-default-500" />
-          </Link>
-          <ThemeSwitch />
-        </NavbarItem>
-        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-        <NavbarItem className="hidden md:flex">
-          <Button
-            isExternal
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
-            startContent={<HeartFilledIcon className="text-danger" />}
-            variant="flat"
-          >
-            Sponsor
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500" />
-        </Link>
-        <ThemeSwitch />
-        <NavbarMenuToggle />
-      </NavbarContent>
-
-      <NavbarMenu>
-        {searchInput}
-        <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
-                }
-                href="#"
-                size="lg"
-              >
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
-          ))}
+      {/* Navbar for mobile */}
+      <div className="navbar-mobile">
+        <div className="navbar-header">
+          <div className="flex flex-row items-center gap-2 pt-2">
+            <Image id="Logo" width={64}  radius="full" src='https://cdn4.iconfinder.com/data/icons/online-shop-7/128/team-people-group-256.png'/>
+            <p className="text-white text-2xl font-bold text-center">Hrify</p>
+          </div>
+          <button className="menu-toggle" onClick={toggleMenu}>
+            ☰
+          </button>
         </div>
-      </NavbarMenu>
-    </NextUINavbar>
+        <Spacer y={2}/>
+        {menuOpen && (
+          <div className="dropdown font-bold text-base">
+            <p>
+              <Link to="/emp/emphome">Home</Link>
+            </p>
+            <Spacer y={2}/>
+            <p>
+              <Link to="/emp/profile">My Profile</Link>
+
+            </p>
+            <Spacer y={2}/>
+            <p>
+              <Link to="/emp/leave">Leave</Link>
+            </p>
+            <Spacer y={2}/>
+            <p>
+              <Link to="/emp/reports">My Reports</Link>
+            </p>
+            <Spacer y={2}/>
+            <p>
+              <Link to="/emp/projects">Projects</Link>
+            </p>
+            <Spacer y={2}/>
+            <p>
+              <Link to="/emp/attendance">My Attendance</Link>
+            </p>
+            <Spacer y={2}/>
+          </div>
+        )}
+      </div>
+    </>
+    
   );
 };
+
+export default Navbar;
