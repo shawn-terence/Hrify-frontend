@@ -48,7 +48,7 @@ const AddUser = () => {
 
     // Send the request with the form data
     axios
-      .post('http://localhost:8000/register/', formData, config)
+      .post('http://localhost:8000/user/create/', formData, config)
       .then((response) => {
         setSuccessMessage('User created successfully!');
         setErrorMessage('');

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card,CardBody,CardFooter,CardHeader,Button,Link } from '@nextui-org/react'
+import {Tabs, Tab, Card, CardBody} from "@nextui-org/react";
 import { Spacer } from '@nextui-org/react'
 import UserList from '../../components/userList'
 import ProjectsList from '../../components/projects'
@@ -7,25 +7,26 @@ import "../../styles/app.css"
 const Users = () => {
   return (
     <div>
-      <div className='grid gap-2 md:grid-cols-2'>
-        <Card>
-          <CardHeader>Total Employees</CardHeader>
-          <CardBody>200</CardBody>
-        </Card>
-        <Card>
-          <CardHeader>Total Employees</CardHeader>
-          <CardBody>200</CardBody>
-        </Card>
-      </div>
-      <Spacer y={4}/>     
-      <Spacer y={4}/>
-      <div>
+      <p className='text-center font-bold text-3xl mb-5'>Employee Page</p>
+      <Tabs initialActiveKey="1"  color="error">
+        <Tab key="1" icon="user" aria-label="Users" title="Employees">
+          <div>
+            <UserList/>
+          </div>
+        </Tab>
+        <Tab key="2" title="employee things">
+          <div>
+            <ProjectsList/>
+          </div>
+        </Tab>
+      </Tabs>
+      {/* <div>
         <UserList />
       </div>
       <Spacer y={4}/>
       <div>
         <ProjectsList />
-      </div>
+      </div> */}
 
     </div>
   )

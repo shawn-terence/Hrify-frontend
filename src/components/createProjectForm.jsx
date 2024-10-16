@@ -55,6 +55,10 @@ const CreateProjectForm = () => {
         end_date: endDate,
         employees,
         manager,
+      }, {
+        headers: {
+          'Authorization': `Token ${token}`
+        }
       });
       console.log(response.data);
       // Handle success (show message, redirect, etc.)
