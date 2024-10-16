@@ -35,10 +35,6 @@ const GReport = () => {
     return <p>Loading reports...</p>;
   }
 
-  if (error) {
-    return <p>Error fetching reports: {error}</p>;
-  }
-
   return (
     <div>
       <Table aria-label="Reports table" bordered shadow={false}>

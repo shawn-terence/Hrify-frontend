@@ -43,7 +43,7 @@ const UserList = () => {
 
     return (
         <div>
-            <p className='text-xl font-bold text-center'>All Employees</p>
+            <p className='text-xl font-bold text-center mb-4'>All Employees</p>
             <div className='flex justify-center items-center '>
                 <div className='max-w-xl flex gap-2'>
                     <Input 
@@ -57,21 +57,21 @@ const UserList = () => {
                     <button className='btnM'>Search</button>
                 </div>
             </div>
-            <Spacer y={2}/>
+            <Spacer y={6}/>
             <Table>
-                <TableHeader>
-                    <TableColumn>Name</TableColumn>
-                    <TableColumn>Email</TableColumn>
-                    <TableColumn>Department</TableColumn>
-                    <TableColumn>More Details</TableColumn>
-                    <TableColumn>Make report</TableColumn>
+                <TableHeader >
+                    <TableColumn className='text-base font-bold'>Name</TableColumn>
+                    <TableColumn className='text-base font-bold'>Email</TableColumn>
+                    <TableColumn className='text-base font-bold'>Department</TableColumn>
+                    <TableColumn className='text-base font-bold'>More Details</TableColumn>
+                    <TableColumn className='text-base font-bold'>Make report</TableColumn>
                 </TableHeader>
-                <TableBody>
+                <TableBody className='text-lg'>
                     {filteredUsers.map(user => (
-                        <TableRow key={user.id}>
-                            <TableCell>{`${user.first_name} ${user.last_name}`}</TableCell>
-                            <TableCell>{user.email}</TableCell>
-                            <TableCell>{user.department}</TableCell>
+                        <TableRow  key={user.id}>
+                            <TableCell className='text-base font-medium'>{`${user.first_name} ${user.last_name}`}</TableCell>
+                            <TableCell className='text-base font-medium'>{user.email}</TableCell>
+                            <TableCell className='text-base font-medium'>{user.department}</TableCell>
                             <TableCell>
                                 <button className='btnM' onClick={() => handleMoreDetails(user.id)}>
                                     View Details

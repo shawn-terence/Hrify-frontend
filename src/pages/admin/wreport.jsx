@@ -12,7 +12,8 @@ const CreateReport = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
   
-  const token = '8cdee9ffbae0a2bd4e6c223e8dc5f92e04bca1d0';
+  
+  const token = localStorage.getItem('token');
 
   const handleSubmit = async (e) => {
     e.preventDefault();

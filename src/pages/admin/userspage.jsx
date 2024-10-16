@@ -4,6 +4,7 @@ import { Spacer } from '@nextui-org/react'
 import UserList from '../../components/userList'
 import ProjectsList from '../../components/projects'
 import "../../styles/app.css"
+import AdminReports from '../../components/admReports';
 const Users = () => {
   return (
     <div>
@@ -18,15 +19,12 @@ const Users = () => {
           <div>
             <ProjectsList/>
           </div>
+          <Spacer y={4}/>
+          <div>
+            <AdminReports/>
+          </div>
         </Tab>
       </Tabs>
-      {/* <div>
-        <UserList />
-      </div>
-      <Spacer y={4}/>
-      <div>
-        <ProjectsList />
-      </div> */}
 
     </div>
   )
