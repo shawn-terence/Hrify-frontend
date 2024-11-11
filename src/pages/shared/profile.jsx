@@ -13,6 +13,7 @@ const Profile = () => {
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [message, setMessage] = useState('');
   const [messageColor, setMessageColor] = useState('');
+  const [profileImage, setProfileImage] = useState(null); // State for profile image
 
   const token = localStorage.getItem('token');
   const userId = localStorage.getItem('id'); // Assuming you store the user ID after login
@@ -39,10 +40,19 @@ const Profile = () => {
 
   // Handle profile update submission
   const handleUpdateProfile = async () => {
+    const updatedData = new FormData(); // Use FormData for image and text data
+    Object.keys(formData).forEach((key) => {
+      updatedData.append(key, formData[key]);
+    });
+    if (profileImage) {
+      updatedData.append('profile_image', profileImage); // Append profile image if available
+    }
+
     try {
-      const response = await axios.patch('http://localhost:8000/user/update/', formData, {
+      const response = await axios.patch('http://localhost:8000/user/update/', updatedData, {
         headers: {
           Authorization: `Token ${token}`,
+          'Content-Type': 'multipart/form-data', // Important for file uploads
         },
       });
 
@@ -95,10 +105,19 @@ const Profile = () => {
           <div className='flex flex-col md:flex-row '>
             <div className='flex flex-col items-center'>
               <img 
-                src='https://nextui-docs-v2.vercel.app/images/album-cover.png' 
+                src={user.profile_image || 'https://nextui-docs-v2.vercel.app/images/album-cover.png'} 
                 className='w-24 h-24 rounded-full sm:w-40 sm:h-40 md:w-36 md:h-36 lg:w-40 lg:h-40'
                 alt='Profile Avatar'
               />
+              {editMode && (
+                <div className="mt-4">
+                  <Input
+                    type="file"
+                    onChange={(e) => setProfileImage(e.target.files[0])}
+                    accept="image/*"
+                  />
+                </div>
+              )}
             </div>
             <div className='name-email'>
               <p className='text-center md:text-start text-2xl font-bold'>
@@ -168,7 +187,9 @@ const Profile = () => {
 
         <CardFooter className='grid gap-2 md:grid-cols-2'>
           {editMode ? (
-            <button className='btnM' onClick={handleUpdateProfile}>Save Changes</button>
+            <>
+              <button className='btnM' onClick={handleUpdateProfile}>Save Changes</button>
+            </>
           ) : (
             <>
               <button className='btnM' onClick={() => setEditMode(true)}>Edit Profile</button>

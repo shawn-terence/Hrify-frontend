@@ -33,7 +33,7 @@ const AdminReports = () => {
 
   return (
     <div>
-      <h2 className='text-xl font-bold text-center'>This Month's Reports</h2>
+      <h2 className='text-xl font-bold text-center'>This Month's Employee Reports</h2>
       <Table aria-label="Reports Table">
         <TableHeader>
           <TableColumn>Name</TableColumn>

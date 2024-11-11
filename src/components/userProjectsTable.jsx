@@ -60,24 +60,24 @@ const UserProjectsTable = () => {
       aria-label="User Projects Table"
     >
       <TableHeader>
-        <TableColumn>PROJECT NAME</TableColumn>
-        <TableColumn>DESCRIPTION</TableColumn>
-        <TableColumn>STATUS</TableColumn>
-        <TableColumn>START DATE</TableColumn>
-        <TableColumn>END DATE</TableColumn>
-        <TableColumn>Manager</TableColumn>
+        <TableColumn className="font-black text-sm">Project name</TableColumn>
+        <TableColumn className="font-black text-sm">Description</TableColumn>
+        <TableColumn className="font-black text-sm">Status</TableColumn>
+        <TableColumn className="font-black text-sm">Start date</TableColumn>
+        <TableColumn className="font-black text-sm">End date</TableColumn>
+        <TableColumn className="font-black text-sm">Manager</TableColumn>
       </TableHeader>
       <TableBody emptyContent={"no projects available"}>
         {projects.map((project) => (
           <TableRow key={project.id}>
-            <TableCell>{project.name}</TableCell>
-            <TableCell>{project.description}</TableCell>
-            <TableCell>
+            <TableCell className="font-semi-bold text-base">{project.name}</TableCell>
+            <TableCell className="font-semi-bold text-base" >{project.description}</TableCell>
+            <TableCell className="font-semi-bold text-base">
               {project.status === "Completed" ? (
                 project.status
               ) : (
                 <Accordion>
-                <AccordionItem title={project.status || "Pending"}>
+                <AccordionItem className="font-semi-bold text-base"  title={project.status || "Pending"}>
                   <div className="flex flex-col items-start">
                     <p onClick={() => handleStatusUpdate(project.id, "Pending")}>
                       Pending
@@ -93,9 +93,9 @@ const UserProjectsTable = () => {
               </Accordion>
               )}
             </TableCell>
-            <TableCell>{project.start_date}</TableCell>
-            <TableCell>{project.end_date || "Ongoing"}</TableCell>
-            <TableCell>
+            <TableCell className="font-semi-bold text-base">{project.start_date}</TableCell>
+            <TableCell className="font-semi-bold text-base">{project.end_date || "Ongoing"}</TableCell>
+            <TableCell className="font-semi-bold text-base">
               {project.manager_email}
             </TableCell>
           </TableRow>

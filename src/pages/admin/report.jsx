@@ -88,7 +88,7 @@ const Report = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           clearable
         />
-        <Button className='btnM' onClick={handleSearch}>Search</Button>
+        <button className='btnM' onClick={handleSearch}>Search</button>
       </div>
       <Spacer y={2} />
 
@@ -114,7 +114,7 @@ const Report = () => {
         />
       </div>
       <Spacer y={2} />
-      <Button className='btnM' onClick={handleFilter}>Filter</Button>
+      <button className='btnM' onClick={handleFilter}>Filter</button>
       <Spacer y={2} />
 
       {/* Display Error */}

@@ -49,7 +49,7 @@ const AdLeaves = () => {
 
   return (
     <div>
-      <p className='text-xl font-bold text-center'>Requested Leaves</p>
+      <p className='text-3xl mb-4 font-bold text-center'>Requested Leaves</p>
       <Table>
         <TableHeader>
           <TableColumn>Date Requested</TableColumn>
@@ -68,8 +68,8 @@ const AdLeaves = () => {
               <TableCell>{leave.date_from}</TableCell>
               <TableCell>{leave.date_to}</TableCell>
               <TableCell className='grid gap-2 lg:grid-cols-2'>
-                <Button color="danger" auto rounded onClick={() => handleAction(leave.id, 'rejected')}>Deny</Button>
-                <Button color="success" auto rounded onClick={() => handleAction(leave.id, 'approved')}>Accept</Button>
+                <button color="danger" className='btnD' auto rounded onClick={() => handleAction(leave.id, 'rejected')}>Deny</button>
+                <button color="success" className='btnA' auto rounded onClick={() => handleAction(leave.id, 'approved')}>Accept</button>
               </TableCell>
             </TableRow>
           ))}
