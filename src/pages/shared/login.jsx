@@ -33,7 +33,7 @@ const Login = () => {
       if (data.role === 'employee') {
         navigate('/emp/emphome');
       } else if (data.role === 'admin') {
-        navigate('/adm/adminhome');
+        navigate('/adm/admhome');
       }
     } else {
       setError(data.message); // Set error message from server response
