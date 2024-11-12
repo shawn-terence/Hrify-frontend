@@ -53,7 +53,7 @@ const Dashboard = () => {
       <div>
         <Attend />
       </div>
-      <Card className="text-center" id='admstats'>
+      <Card  id='admstats'>
         <div className="infodiv">
           <p className="text-lg">Total Employees: {employeeCount}</p>
         </div>

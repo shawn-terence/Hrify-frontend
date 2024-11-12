@@ -140,7 +140,10 @@ body{
     padding-right: 0.4rem;
     padding-left: 0.4rem;
   }
-  
+  #admstats{
+    display: flex;
+    flex-wrap: wrap;
+  }
   .menu-toggle {
     background: none;
     border: none;
