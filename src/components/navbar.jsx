@@ -84,7 +84,7 @@ const Navbaradm = () => {
             <p className="text-lg  font-bold">My Links</p>
             <Spacer y={2}/>
             <Link to="/adm/admhome">
-              <p className="text-lg">Home</p>
+              <p className="text-base">Home</p>
             </Link>
             <Spacer y={2}/> 
             <Link to="/adm/attendance">
