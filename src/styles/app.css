@@ -77,6 +77,16 @@ body{
     bottom: 1rem;
     left: 1.8rem;
   }
+  .infodiv{
+    min-height: 100px;
+    width: 30%;
+    margin: 10px;
+    border-radius: 5px;
+    border: 0.5px,solid,rgba(117, 115, 115, 0.185);
+    background: #ffffff;
+    box-shadow:  3px 5px 10px #c4c4c469;
+                /* -10px -10px 30px #ffffff; */
+  }
   .btnD{
     background-color:rgba(201, 23, 23, 0.938);
     color: white;

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Attend from '../../components/attend';
 import AdminReports from '../../components/admReports';
 import { Card,CardHeader,CardBody } from '@nextui-org/react';
+
 const Dashboard = () => {
   const [employeeCount, setEmployeeCount] = useState(0);
   const token = localStorage.getItem('token')
@@ -33,7 +34,7 @@ const Dashboard = () => {
         <Attend />
       </div>
       <Card className="text-center">
-        <div>
+        <div className='infodiv'>
           <p>Total Employees: {employeeCount}</p>
         </div>
       </Card>
