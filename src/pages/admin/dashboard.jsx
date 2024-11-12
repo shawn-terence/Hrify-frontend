@@ -4,6 +4,7 @@ import AdminReports from '../../components/admReports'
 const dashboard = () => {
   return (
     <div>
+      <p className='text-center font-bold text-3xl'>Home Page</p>
       <div>
         <Attend />
       </div>
