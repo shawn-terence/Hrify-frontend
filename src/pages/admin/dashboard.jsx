@@ -53,10 +53,9 @@ const Dashboard = () => {
       <div>
         <Attend />
       </div>
-      <Card className="text-center">
+      <Card className="text-center" id='admstats'>
         <div className="infodiv">
           <p className="text-lg">Total Employees: {employeeCount}</p>
-          <p className="text-lg">Pending Leave Requests: {pendingLeaveCount}</p>
         </div>
         <div className="infodiv">
           <p className="text-lg">Pending Leave Requests: {pendingLeaveCount}</p>

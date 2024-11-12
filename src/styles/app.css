@@ -192,6 +192,9 @@ body{
       align-items: center;
       justify-content: center;
     }
+    #admstats{
+      display:flexbox;
+    }
   }
   #profile-card{
   width: 100%;
@@ -202,5 +205,9 @@ body{
     }
     #login-card{
       width: 400px;
+    }
+    #admstats{
+      display: flex;
+      flex-direction: row;
     }
   }
