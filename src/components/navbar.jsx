@@ -83,39 +83,38 @@ const Navbaradm = () => {
             <div className="font-bold text-base">
             <p className="text-lg  font-bold">My Links</p>
             <Spacer y={2}/>
-          <Link to="/adm/admhome">
-            <p>Home</p>
-          </Link>
-          <Link to="/adm/profile">
-            <p>My Profile</p>
-          </Link>
-          <Link to="/adm/attendance">
-            <p>Attendance</p>
-          </Link>
-          <Link to="/adm/leave">
-            <p>My Leave Requests</p>
-          </Link>
-          <Link to="/adm/reports">
-            <p>My Reports</p>
-          </Link>
-          <Spacer y={4}/>
-          <p className="font-bold text-lg">Employee Links</p>
-          <Spacer y={2}/>
-          <Link to="/adm/adduser">
-            <p>Add New Employee</p>
-          </Link>
-          <Link to="/adm/users">
-            <p>Manage Employees</p>
-          </Link>
-          <Link to="/adm/leaves">
-            <p>Leaves</p>
-          </Link>
-          <Link to="/adm/report">
-            <p>View Reports</p>
-          </Link>
-          <Link to='/adm/attendancepage'>
-          <p>Attendances</p>
-          </Link>
+            <Link to="/adm/admhome">
+              <p className="text-lg">Home</p>
+            </Link>
+            <Spacer y={2}/> 
+            <Link to="/adm/attendance">
+              <p className="text-lg">Attendance</p>
+            </Link>
+            <Spacer y={2}/>
+            <Link to="/adm/leave">
+              <p className="mb-2 text-base">Leave Requests</p>
+            </Link>
+            <Spacer y={2}/>
+            <Link to="/adm/reports">
+              <p className="mb-2 text-base">My Reports</p>
+            </Link>
+            <Spacer y={4}/>
+            <Spacer y={2} />
+            <Link to="/adm/users">
+              <p className="mb-2 text-base">Employees</p>
+            </Link>
+            <Link to="/adm/adduser">
+              <p className="mb-2 text-base">Add Employee</p>
+            </Link>
+            <Link to="/adm/leaves">
+              <p className="mb-2 text-base">Leaves</p>
+            </Link>
+            <Link to="/adm/report">
+              <p className="mb-2 text-base">View Reports</p>
+            </Link>
+            <Link to="/adm/attendancepage">
+              <p className="mb-2 text-base">Attendances</p>
+            </Link>
             </div>
           </div>
         )}
