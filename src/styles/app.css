@@ -203,8 +203,8 @@ body{
     #login-card{
       width: 400px;
     }
-    #admstats{
+    /* #admstats{
       display: flex;
       flex-direction: row;
-    }
+    } */
   }
