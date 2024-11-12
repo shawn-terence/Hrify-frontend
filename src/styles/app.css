@@ -192,9 +192,6 @@ body{
       align-items: center;
       justify-content: center;
     }
-    #admstats{
-      display:flexbox;
-    }
   }
   #profile-card{
   width: 100%;
