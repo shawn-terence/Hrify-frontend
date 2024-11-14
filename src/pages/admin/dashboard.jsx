@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import Attend from '../../components/attend';
 import AdminReports from '../../components/admReports';
 import { Card } from '@nextui-org/react';
@@ -7,6 +8,7 @@ import { Card } from '@nextui-org/react';
 const Dashboard = () => {
   const [employeeCount, setEmployeeCount] = useState(0);
   const [pendingLeaveCount, setPendingLeaveCount] = useState(0);
+  const [projects, setProjects] = useState([]);
   const token = localStorage.getItem('token');
 
   useEffect(() => {
@@ -43,9 +45,31 @@ const Dashboard = () => {
       }
     };
 
+    // Fetch all projects
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/projects/', {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        });
+        setProjects(response.data); // Store projects data
+      } catch (err) {
+        console.error('Error fetching projects', err);
+        alert('Failed to load projects.');
+      }
+    };
+
     fetchUsers();
     fetchLeaves();
+    fetchProjects();
   }, [token]);
+
+  // Group projects by status
+  const projectStatuses = projects.reduce((acc, project) => {
+    acc[project.status] = (acc[project.status] || 0) + 1;
+    return acc;
+  }, {});
 
   return (
     <div>
@@ -53,14 +77,25 @@ const Dashboard = () => {
       <div>
         <Attend />
       </div>
-      <Card  id='admstats'>
+      <Card class='admstats'>
         <div className="infodiv">
-          <p className="text-lg">Total Employees: {employeeCount}</p>
+          <Link to="/adm/users">
+            <p className="text-lg">Total Employees: {employeeCount}</p>
+            <p className="text-sm text-blue-500">Go to Employees Page</p> {/* Added text */}
+          </Link>
         </div>
         <div className="infodiv">
-          <p className="text-lg">Pending Leave Requests: {pendingLeaveCount}</p>
+          <Link to="/adm/projects">
+            <p className="text-lg">Projects In Progress: {projectStatuses.in_progress || 0}</p>
+            <p className="text-sm text-blue-500">Go to Projects Page</p> {/* Added text */}
+          </Link>
         </div>
-
+        <div className="infodiv">
+          <Link to="/adm/leaves">
+            <p className="text-lg">Pending Leave Requests: {pendingLeaveCount}</p>
+            <p className="text-sm text-blue-500">Go to Pending Leaves Page</p> {/* Added text */}
+          </Link>
+        </div>
       </Card>
       <div>
         <AdminReports />

@@ -77,16 +77,26 @@ body{
     bottom: 1rem;
     left: 1.8rem;
   }
-  #admstats {
-    display: flexbox;
+  .admstats {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: row; */
+    min-height: min-content;
+    min-width: fit-content;
+    align-items: center;
+    justify-content: center;
+
   }
   
   .infodiv {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     min-height: 100px;
+    min-width: 210px;
     width: 30%;
+    padding: 5px;
     margin: 10px;
     border-radius: 5px;
     border: 0.5px solid rgba(117, 115, 115, 0.185);
