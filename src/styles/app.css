@@ -2,7 +2,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
   }
   p{
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
   }
   .login-container {
@@ -20,18 +20,18 @@ body{
   }
     
   .bg-danger {
-      /* Example styling for the card */
-      background-color: #ff4d4f; /* Background color for the card */
+      
+      background-color: #ff4d4f;
       min-width: 22.2rem;
       max-height: 25rem;
       padding: 10px;
-      color: white; /* Text color for the card */
+      color: white; 
     }
   #linkbox{
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 3rem;
+    top: 2rem;
   }
   .adsidebar{
     background-color:#13213d;
@@ -74,8 +74,8 @@ body{
   }
   #side-footer{
     position: absolute;
-    bottom: 1rem;
-    left: 1.8rem;
+    bottom: 2rem;
+    left: 2.5rem;
   }
   .admstats {
     display: flex;

@@ -131,7 +131,7 @@ const Report = () => {
             <TableColumn>Date</TableColumn>
             <TableColumn>Details</TableColumn>
           </TableHeader>
-          <TableBody>
+          <TableBody emptyContent={'No data to be displayed'}>
             {filteredReports.map((report) => (
               <TableRow key={report.id}>
                 <TableCell>{report.employee_name}</TableCell>

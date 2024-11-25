@@ -93,7 +93,7 @@ const Dashboard = () => {
         <div className="infodiv">
           <Link to="/adm/leaves">
             <p className="text-lg">Pending Leave Requests: {pendingLeaveCount}</p>
-            <p className="text-sm text-blue-500">Go to Pending Leaves Page</p> {/* Added text */}
+            <p className="text-sm text-blue-500">Go to Leaves Page</p> {/* Added text */}
           </Link>
         </div>
       </Card>

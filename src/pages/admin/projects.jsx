@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Spacer, TableCell, TableColumn, TableBody, TableRow, TableHeader } from '@nextui-org/react';
-import axios from 'axios'; // Import axios
+import { Input, Spacer, Table, TableCell, TableColumn, TableBody, TableRow, TableHeader } from '@nextui-org/react';
+import axios from 'axios';
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
+  const [filteredProjects, setFilteredProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const token = localStorage.getItem('token'); // Get token from local storage
 
   useEffect(() => {
-    // Fetch all projects from the API
     const fetchProjects = async () => {
       try {
         const response = await axios.get('http://localhost:8000/projects/', {
@@ -19,6 +20,7 @@ const ProjectsPage = () => {
         });
 
         setProjects(response.data); // Set the fetched projects
+        setFilteredProjects(response.data); // Initialize the filtered projects
       } catch (err) {
         setError(err.message); // Set error message if the fetch fails
       } finally {
@@ -27,7 +29,18 @@ const ProjectsPage = () => {
     };
 
     fetchProjects();
-  }, [token]); // Add token as a dependency
+  }, [token]); 
+
+  // Handle search input changes
+  const handleSearch = (event) => {
+    const term = event.target.value.toLowerCase();
+    setSearchTerm(term);
+    setFilteredProjects(
+      projects.filter((project) =>
+        project.name.toLowerCase().includes(term)
+      )
+    );
+  };
 
   if (loading) {
     return <p>Loading projects...</p>;
@@ -39,10 +52,19 @@ const ProjectsPage = () => {
 
   return (
     <div>
-      <h2>All Projects</h2>
+      <h2 className='text-3xl font-bold text-center'>All Projects</h2>
+      <Spacer y={1} />
+      <Input
+        clearable
+        placeholder="Search projects by name..."
+        value={searchTerm}
+        onChange={handleSearch}
+        aria-label="Search projects"
+        fullWidth
+      />
       <Spacer y={2} />
 
-      {projects.length === 0 ? (
+      {filteredProjects.length === 0 ? (
         <p>No projects found</p>
       ) : (
         <Table aria-label="Projects table" bordered shadow={false}>
@@ -53,7 +75,7 @@ const ProjectsPage = () => {
             <TableColumn>Status</TableColumn>
           </TableHeader>
           <TableBody>
-            {projects.map((project) => (
+            {filteredProjects.map((project) => (
               <TableRow key={project.id}>
                 <TableCell>{project.name}</TableCell>
                 <TableCell>{project.manager_email}</TableCell>

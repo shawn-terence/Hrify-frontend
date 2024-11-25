@@ -15,53 +15,56 @@ const Navbaradm = () => {
       {/* Sidebar for desktop */}
       <div className={`adsidebar ${menuOpen ? "open" : ""}`}>
         <div  className="font-bold text-base flex flex-col">
-        <div className="flex flex-col items-center ">
+        <div className="flex flex-col">
             <Image id="Logo" width={80}  radius="full" src='https://cdn4.iconfinder.com/data/icons/online-shop-7/128/team-people-group-256.png'/>
         </div>
         <div id="linkbox" className="text-base"> 
           <Spacer y={4}/>
               <Spacer y={2}/>
             <Link to="/adm/admhome">
-              <p className="text-lg">Home</p>
+              <p className="text-base">Home</p>
             </Link>
             <Spacer y={2}/> 
             <Link to="/adm/attendance">
-              <p className="text-lg">Attendance</p>
+              <p className="text-base">Attendance</p>
             </Link>
             <Spacer y={2}/>
             <Link to="/adm/leave">
-              <p className="text-lg">Leave Requests</p>
+              <p className="text-base">Leave Requests</p>
             </Link>
             <Spacer y={2}/>
             <Link to="/adm/reports">
-              <p className="text-lg">My Reports</p>
+              <p className="text-base">My Reports</p>
             </Link>
             <Spacer y={4}/>
             <Spacer y={2} />
             <Link to="/adm/users">
-              <p className="mb-4 text-lg">Employees</p>
+              <p className="mb-4 text-base">Employees</p>
             </Link>
             <Link to="/adm/adduser">
-              <p className="mb-4 text-lg">Add Employee</p>
+              <p className="mb-4 text-base">Add Employee</p>
+            </Link>
+            <Link to='/adm/projects'>
+              <p className="mb-4 text-base">Projects</p>
             </Link>
             <Link to="/adm/leaves">
-              <p className="mb-4 text-lg">Leaves</p>
+              <p className="mb-4 text-base">Leaves</p>
             </Link>
             <Link to="/adm/report">
-              <p className="mb-4 text-lg">View Reports</p>
+              <p className="mb-4 text-base">View Reports</p>
             </Link>
             <Link to="/adm/attendancepage">
-              <p className="mb-4 text-lg">Attendances</p>
+              <p className="mb-4 text-base">Attendances</p>
             </Link>
         </div>
           </div>
           <Spacer y={6}/>
         <div id="side-footer" className="flex flex-col gap-8">
             <Link to="/adm/profile" className="pr-2">
-                <Image width={48} src="https://cdn0.iconfinder.com/data/icons/business-and-management-flat-8/24/PROFILE_profile_picture_profile_icon_user_profile-256.png"/>
+                <Image width={48} src="https://cdn-icons-png.flaticon.com/128/3177/3177440.png"/>
             </Link>
             <Link to="/">
-            <Image width={48} src="https://cdn4.iconfinder.com/data/icons/internet-security-flat-2/32/Internet_Security_entrance_exit_log_out_arrow-256.png"/>
+            <Image width={48} src="https://cdn0.iconfinder.com/data/icons/simpline-mix/64/simpline_43-256.png"/>
             </Link>
         </div>
       </div>
@@ -105,6 +108,9 @@ const Navbaradm = () => {
             </Link>
             <Link to="/adm/adduser">
               <p className="mb-2 text-base">Add Employee</p>
+            </Link>
+            <Link to='/adm/projects'>
+              <p className="mb-2 text-base">Projects</p>
             </Link>
             <Link to="/adm/leaves">
               <p className="mb-2 text-base">Leaves</p>
