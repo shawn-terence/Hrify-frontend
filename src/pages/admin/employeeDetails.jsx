@@ -4,9 +4,8 @@ import { Card, Spacer, CardHeader, CardBody, Input, CardFooter, Button } from '@
 import GReport from '../../components/greport';
 import axios from 'axios';
 const EmployeeDetails = () => {
-  const { id } = useParams(); // Get the employee ID from the URL
+  const { id } = useParams(); 
   const Id=+id
-  console.log(typeof(Id))
   const [employee, setEmployee] = useState({
     first_name: '',
     last_name: '',

@@ -60,7 +60,6 @@ const CreateProjectForm = () => {
           'Authorization': `Token ${token}`
         }
       });
-      console.log(response.data);
       // Handle success (show message, redirect, etc.)
     } catch (error) {
       console.error(error.response.data);

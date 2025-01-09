@@ -44,19 +44,19 @@ const UserList = () => {
     return (
         <div>
             <p className='text-xl font-bold text-center mb-4'>All Employees</p>
-            <div className='flex justify-center items-center '>
-                <div className='max-w-xl flex gap-2'>
-                    <Input 
-                        clearable 
-                        underlined 
-                        label="Enter employee name"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)} // Update search term
-                        style={{width: '300px' }}
-                    />
-                    <button className='btnM'>Search</button>
-                </div>
+            <div className="flex justify-center items-center p-4">
+            <div className="w-full sm:max-w-xl flex flex-wrap gap-2">
+                <Input
+                clearable
+                underlined
+                label="Enter employee name"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)} // Update search term
+                className="w-full sm:w-72" // Full width on smaller screens, fixed width on larger screens
+                />
+                <button className="btnM w-full sm:w-auto">Search</button> {/* Full width on smaller screens */}
             </div>
+        </div>
             <Spacer y={6}/>
             <Table>
                 <TableHeader >

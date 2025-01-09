@@ -44,7 +44,6 @@ const Login = () => {
       setError('An error occurred. Please check your network connection and try again.');
     }
   };
-  console.log(error)
   return (
     <div className="login-container">
       <div className="">

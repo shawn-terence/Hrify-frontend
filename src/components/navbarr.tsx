@@ -7,9 +7,31 @@ import '../styles/app.css';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const token = localStorage.getItem('token');
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+  const handleLogout = async () => {
+    try {
+      // Send a POST request to the logout endpoint
+      const response = await fetch("http://localhost:8000/user/logout/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        navigate("/");
+      } else {
+        console.error("Logout failed:", response.statusText);
+        alert("Failed to logout. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+      alert("An error occurred while logging out. Please try again.");
+    }
   };
 
   return (
@@ -48,9 +70,13 @@ const Navbar = () => {
             <Link to="/emp/profile" className="pr-2">
                 <Image width={48} src="https://cdn0.iconfinder.com/data/icons/business-and-management-flat-8/24/PROFILE_profile_picture_profile_icon_user_profile-256.png"/>
             </Link>
-            <Link to="/">
-            <Image width={48} src="https://cdn4.iconfinder.com/data/icons/internet-security-flat-2/32/Internet_Security_entrance_exit_log_out_arrow-256.png"/>
-            </Link>
+          <button onClick={handleLogout} style={{ background: "none", border: "none" }}>
+            <Image
+              width={48}
+              src="https://cdn0.iconfinder.com/data/icons/simpline-mix/64/simpline_43-256.png"
+              alt="Logout"
+            />
+          </button>
           </div>
       </div>
 
@@ -93,6 +119,9 @@ const Navbar = () => {
               <Link to="/emp/attendance">My Attendance</Link>
             </p>
             <Spacer y={2}/>
+            <Link>
+              <p className="mb-2 text-base" onClick={handleLogout}>Logout</p>
+            </Link>
           </div>
         )}
       </div>
