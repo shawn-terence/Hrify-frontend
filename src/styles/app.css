@@ -141,11 +141,18 @@ body{
     background-color:#13213d;
     z-index: 1000; 
   }
+  .requestfltr{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
   .navbar-mobile {
     display: none;
     width: 100%;
     height: 5rem;
-    background-color: #324161;
+    background-color: #203c79;
     z-index: 1000; 
   }
   

@@ -105,7 +105,7 @@ const Profile = () => {
           <div className='flex flex-col md:flex-row '>
             <div className='flex flex-col items-center'>
               <img 
-                src={user.profile_image || 'https://nextui-docs-v2.vercel.app/images/album-cover.png'} 
+                src={user.profile_picture_url || 'https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678099-profile-filled-64.png'} 
                 className='w-24 h-24 rounded-full sm:w-40 sm:h-40 md:w-36 md:h-36 lg:w-40 lg:h-40'
                 alt='Profile Avatar'
               />

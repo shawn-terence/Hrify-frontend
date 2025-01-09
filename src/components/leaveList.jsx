@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Table, TableHeader, TableCell, TableColumn, TableRow, TableBody, Button } from '@nextui-org/react';
+import { Table, TableHeader, TableCell, TableColumn, TableRow, TableBody, Button, Input } from '@nextui-org/react';
 
 const LeaveRequestsList = () => {
     const [leaves, setLeaves] = useState([]);
+    const [filteredLeaves, setFilteredLeaves] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const token=localStorage.getItem('token')
+    const [searchQuery, setSearchQuery] = useState('');
+    const [statusFilter, setStatusFilter] = useState('');
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
         const fetchLeaves = async () => {
@@ -17,6 +20,7 @@ const LeaveRequestsList = () => {
                     },
                 });
                 setLeaves(response.data);
+                setFilteredLeaves(response.data);
                 setLoading(false);
             } catch (err) {
                 setError('Failed to fetch leave requests.');
@@ -25,7 +29,25 @@ const LeaveRequestsList = () => {
         };
 
         fetchLeaves();
-    }, []);
+    }, [token]);
+
+    useEffect(() => {
+        let filtered = leaves;
+
+        // Filter by status
+        if (statusFilter) {
+            filtered = filtered.filter((leave) => leave.status.toLowerCase() === statusFilter);
+        }
+
+        // Filter by search query (leave reason)
+        if (searchQuery) {
+            filtered = filtered.filter((leave) =>
+                leave.reason.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+        }
+
+        setFilteredLeaves(filtered);
+    }, [searchQuery, statusFilter, leaves]);
 
     const handleDelete = async (leaveId, leaveStatus) => {
         if (leaveStatus !== 'pending') {
@@ -53,7 +75,56 @@ const LeaveRequestsList = () => {
 
     return (
         <div>
-            <h1 className='text-xl font-bold text-center'>Leave Requests</h1>
+            <h1 className="text-xl font-bold text-center">Leave Requests</h1>
+
+            {/* Search Bar */}
+            <div className="mb-4">
+                <Input
+                    clearable
+                    underlined
+                    label="Search by reason"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </div>
+
+            {/* Filter Buttons */}
+            <div className="requestfltr">
+                <Button
+                    onClick={() => setStatusFilter('')}
+                    auto
+                    className='font-bold'
+                    color={statusFilter === '' ? 'primary' : 'default'}
+                >
+                    All
+                </Button>
+                <Button
+                    onClick={() => setStatusFilter('pending')}
+                    auto
+                    className='font-bold'
+                    color={statusFilter === 'pending' ? 'primary' : 'default'}
+                >
+                    Pending
+                </Button>
+                <Button
+                    onClick={() => setStatusFilter('approved')}
+                    auto
+                    className='font-bold'
+                    color={statusFilter === 'approved' ? 'primary' : 'default'}
+                >
+                    Approved
+                </Button>
+                <Button
+                    onClick={() => setStatusFilter('rejected')}
+                    auto
+                    className='font-bold'
+                    color={statusFilter === 'rejected' ? 'primary' : 'default'}
+                >
+                    Rejected
+                </Button>
+            </div>
+
+            {/* Table */}
             <Table aria-label="Leave Requests Table" isStriped>
                 <TableHeader>
                     <TableColumn>Employee Name</TableColumn>
@@ -63,8 +134,8 @@ const LeaveRequestsList = () => {
                     <TableColumn>Status</TableColumn>
                     <TableColumn>Actions</TableColumn>
                 </TableHeader>
-                <TableBody emptyContent={"no leave history available"}>
-                    {leaves.map((leave) => (
+                <TableBody emptyContent="No leave history available">
+                    {filteredLeaves.map((leave) => (
                         <TableRow key={leave.id}>
                             <TableCell>{leave.employee_name}</TableCell>
                             <TableCell>{leave.date_from}</TableCell>
@@ -75,7 +146,7 @@ const LeaveRequestsList = () => {
                                 <button
                                     color="error"
                                     auto
-                                    className='btnD'
+                                    className="btnD"
                                     size="small"
                                     onClick={() => handleDelete(leave.id, leave.status)}
                                 >
