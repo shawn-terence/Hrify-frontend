@@ -14,7 +14,7 @@ const LeaveRequestsList = () => {
     useEffect(() => {
         const fetchLeaves = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/leave/request/', {
+                const response = await axios.get('https://hrify-backend.onrender.com/leave/request/', {
                     headers: {
                         'Authorization': `Token ${token}`,
                     },
@@ -60,7 +60,7 @@ const LeaveRequestsList = () => {
         }
 
         try {
-            await axios.delete(`http://localhost:8000/leave/delete/${leaveId}/`, {
+            await axios.delete(`https://hrify-backend.onrender.com/leave/delete/${leaveId}/`, {
                 headers: {
                     'Authorization': `Token ${token}`,
                 },

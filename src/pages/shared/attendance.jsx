@@ -25,7 +25,7 @@ function Attendance() {
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/attendance/${employeeId}/`, {
+        const response = await axios.get(`https://hrify-backend.onrender.com/attendance/${employeeId}/`, {
           headers: {
             'Authorization': `Token ${token}`,
           },

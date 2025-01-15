@@ -9,7 +9,6 @@ import UserProjectsTable from '../../components/userProjectsTable';
 const Dashboard = () => {
   const token=localStorage.getItem('token')
 
-  console.log(token)
   const [user,setUser]=useState([])
   return (
     <>

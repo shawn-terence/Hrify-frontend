@@ -18,7 +18,7 @@ const Report = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/report/adm/', {
+        const response = await axios.get('https://hrify-backend.onrender.com/report/adm/', {
           headers: {
             'Authorization': `Token ${token}`,
           },
@@ -35,7 +35,7 @@ const Report = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/report/categories/', {
+        const response = await axios.get('https://hrify-backend.onrender.com/report/categories/', {
           headers: {
             'Authorization': `Token ${token}`,
           },

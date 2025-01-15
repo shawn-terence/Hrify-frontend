@@ -13,7 +13,7 @@ const AttendancePage = () => {
   // Fetch all attendance records from the backend
   const fetchAllAttendance = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/attendance/",{
+      const response = await axios.get("https://hrify-backend.onrender.com/attendance/",{
         headers: {
           'Authorization': `Token ${token}`,
       },

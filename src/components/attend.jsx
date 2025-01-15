@@ -7,7 +7,7 @@ const Attend = ({ onAttendanceRefresh }) => {
   const token =localStorage.getItem('token')
   const handleClockIn = async () => {
     try {
-      await axios.post('http://localhost:8000/time-in/', {}, {
+      await axios.post('https://hrify-backend.onrender.com/time-in/', {}, {
         headers: {
           'Authorization': `Token ${token}`,
         },
@@ -20,7 +20,7 @@ const Attend = ({ onAttendanceRefresh }) => {
 
   const handleClockOut = async () => {
     try {
-      await axios.post('http://localhost:8000/time-out/', {}, {
+      await axios.post('https://hrify-backend.onrender.com/time-out/', {}, {
         headers: {
           'Authorization': `Token ${token}`,
         },

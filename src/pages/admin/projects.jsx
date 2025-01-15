@@ -13,7 +13,7 @@ const ProjectsPage = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/projects/', {
+        const response = await axios.get('https://hrify-backend.onrender.com/projects/', {
           headers: {
             'Authorization': `Token ${token}`, // Assuming token-based auth
           },

@@ -24,7 +24,7 @@ const EmployeeDetails = () => {
     // Fetch employee data
     const fetchEmployee = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/user/${Id}/details/`, {
+        const response = await axios.get(`https://hrify-backend.onrender.com/user/${Id}/details/`, {
           headers: {
             'Authorization': `Token ${token}`
           },

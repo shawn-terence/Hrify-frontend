@@ -14,7 +14,7 @@ const GReport = () => {
     // Fetch all reports from the API using axios
     const fetchReports = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/report/${id}/`, {
+        const response = await axios.get(`https://hrify-backend.onrender.com/report/${id}/`, {
           headers: {
             'Authorization': `Token ${token}`, // Assuming token-based auth
           },

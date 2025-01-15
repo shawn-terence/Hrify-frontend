@@ -20,7 +20,7 @@ const ReportPage = () => {
   // Function to fetch reports from the API
   const fetchReports = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/report/", {
+      const response = await axios.get("https://hrify-backend.onrender.com/report/", {
         headers: {
           Authorization: `Token ${token}`,
         },

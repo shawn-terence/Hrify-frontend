@@ -15,7 +15,7 @@ const Login = () => {
     setError(''); // Clear previous errors
 
     try {
-      const response = await fetch('http://localhost:8000/user/login/', {
+      const response = await fetch('https://hrify-backend.onrender.com/user/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -83,12 +83,12 @@ const Login = () => {
           </CardBody>
           <CardFooter className='grid text-white font-semibold'>
             <div>
-              <p>email:Johndoe@example.com</p>
-              <p>password:ppassword123</p>
+              <p>Employee email:john.doe@example.com</p>
+              <p>password:password123</p>
             </div>
             <div>
-              <p>Employee email:Pete@example.com</p>
-              <p>password:ppassword123</p>
+              <p> Admin email:jane.doe@example.com</p>
+              <p>password:password123</p>
             </div>
           </CardFooter>
         </Card>

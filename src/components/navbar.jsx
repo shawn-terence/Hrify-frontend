@@ -14,7 +14,7 @@ const Navbaradm = () => {
   const handleLogout = async () => {
     try {
       // Send a POST request to the logout endpoint
-      const response = await fetch("http://localhost:8000/user/logout/", {
+      const response = await fetch("https://hrify-backend.onrender.com/user/logout/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

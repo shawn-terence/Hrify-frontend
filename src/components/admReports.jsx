@@ -10,7 +10,7 @@ const AdminReports = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/report/adm/', {
+        const response = await axios.get('https://hrify-backend.onrender.com/report/adm/', {
           headers: {
             'Authorization': `Token ${token}`,
           },

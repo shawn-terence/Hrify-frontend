@@ -18,7 +18,7 @@ const CreateReport = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:8000/report/${id}/`, {
+      const response = await axios.post(`https://hrify-backend.onrender.com/report/${id}/`, {
         category,
         report: reportText,
         date,

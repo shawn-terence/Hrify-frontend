@@ -1,6 +1,6 @@
 //@ts-nocheck
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import {Image} from "@nextui-org/react";
 import { Spacer } from "@nextui-org/react";
 import '../styles/app.css';
@@ -8,13 +8,14 @@ import '../styles/app.css';
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const token = localStorage.getItem('token');
+  const navigate = useNavigate();
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
   const handleLogout = async () => {
     try {
       // Send a POST request to the logout endpoint
-      const response = await fetch("http://localhost:8000/user/logout/", {
+      const response = await fetch("https://hrify-backend.onrender.com/user/logout/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

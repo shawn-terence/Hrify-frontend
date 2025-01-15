@@ -22,7 +22,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/user/${userId}/details/`, {
+        const response = await axios.get(`https://hrify-backend.onrender.com/user/${userId}/details/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -49,7 +49,7 @@ const Profile = () => {
     }
 
     try {
-      const response = await axios.patch('http://localhost:8000/user/update/', updatedData, {
+      const response = await axios.patch('https://hrify-backend.onrender.com/user/update/', updatedData, {
         headers: {
           Authorization: `Token ${token}`,
           'Content-Type': 'multipart/form-data', // Important for file uploads
@@ -74,7 +74,7 @@ const Profile = () => {
     }
 
     try {
-      const response = await axios.put('http://localhost:8000/user/password/', {
+      const response = await axios.put('https://hrify-backend.onrender.com/user/password/', {
         old_password: oldPassword,
         new_password: newPassword,
       }, {

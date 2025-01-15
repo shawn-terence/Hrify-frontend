@@ -15,7 +15,7 @@ const Dashboard = () => {
     // Fetch all users
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/users/', {
+        const response = await axios.get('https://hrify-backend.onrender.com/users/', {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -31,7 +31,7 @@ const Dashboard = () => {
     // Fetch all leave requests
     const fetchLeaves = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/leaves/', {
+        const response = await axios.get('https://hrify-backend.onrender.com/leaves/', {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -48,7 +48,7 @@ const Dashboard = () => {
     // Fetch all projects
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/projects/', {
+        const response = await axios.get('https://hrify-backend.onrender.com/projects/', {
           headers: {
             Authorization: `Token ${token}`,
           },

@@ -11,7 +11,7 @@ const UserProjectsTable = () => {
   const token=localStorage.getItem('token')
   useEffect(() => {
     // Fetch the user's projects
-    axios.get("http://localhost:8000/projects/user/", {
+    axios.get("https://hrify-backend.onrender.com/projects/user/", {
       headers: {
         'Authorization': `Token ${token}`,
       },
@@ -27,7 +27,7 @@ const UserProjectsTable = () => {
   const handleStatusUpdate = (projectId, newStatus) => {
       setLoading(true);
       axios
-        .put(`http://localhost:8000/projects/${projectId}/status/`, { status: newStatus }, {
+        .put(`https://hrify-backend.onrender.com/projects/${projectId}/status/`, { status: newStatus }, {
           headers: {
             'Authorization': `Token ${token}`,
           },

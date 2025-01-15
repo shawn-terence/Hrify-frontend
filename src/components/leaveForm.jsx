@@ -23,7 +23,7 @@ const LeaveRequestForm = () => {
             };
 
             const response = await axios.post(
-                'http://localhost:8000/leave/request/',
+                'https://hrify-backend.onrender.com/leave/request/',
                 payload,
                 {
                     headers: {

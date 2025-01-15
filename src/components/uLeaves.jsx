@@ -13,7 +13,7 @@ const AdLeaves = () => {
     // Fetch all leave requests
     const fetchLeaves = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/leaves/', {
+        const response = await axios.get('https://hrify-backend.onrender.com/leaves/', {
           headers: {
             'Authorization': `Token ${token}`,
           },
@@ -28,7 +28,7 @@ const AdLeaves = () => {
 
   const handleAction = async (id, status) => {
     try {
-      const response = await axios.patch(`http://localhost:8000/leave/action/${id}/`, 
+      const response = await axios.patch(`https://hrify-backend.onrender.com/leave/action/${id}/`, 
         { status }, // Send the status as the body
         {
           headers: {

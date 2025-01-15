@@ -19,7 +19,7 @@ const CreateProjectForm = () => {
 
     if (email.length > 2) {
       try {
-        const response = await axios.get(`http://localhost:8000/users/?email=${email}`,{
+        const response = await axios.get(`https://hrify-backend.onrender.com/users/?email=${email}`,{
           headers: {
             'Authorization': `Token ${token}`
           }
@@ -48,7 +48,7 @@ const CreateProjectForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/projects/create/", {
+      const response = await axios.post("https://hrify-backend.onrender.com/projects/create/", {
         name,
         description,
         start_date: startDate,

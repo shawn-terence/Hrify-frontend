@@ -14,7 +14,7 @@ const UserList = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/users/', {
+                const response = await axios.get('https://hrify-backend.onrender.com/users/', {
                     headers: {
                         'Authorization': `Token ${token}`
                     }
