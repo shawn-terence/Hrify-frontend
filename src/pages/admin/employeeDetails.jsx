@@ -29,7 +29,6 @@ const EmployeeDetails = () => {
             'Authorization': `Token ${token}`
           },
         });
-    
         setEmployee(response.data);
       } catch (err) {
         setError(err.response?.data?.detail || err.message);
@@ -52,7 +51,7 @@ const EmployeeDetails = () => {
   // Handle form submission to update user details
   const handleUpdate = async () => {
     try {
-      const response = await fetch('http://localhost:8000/user/update/', {
+      const response = await fetch('https://hrify-backend.onrender.com/user/update/', {
         method: 'PATCH',
         headers: {
           'Authorization': `Token ${token}`,
@@ -88,7 +87,7 @@ const EmployeeDetails = () => {
           <CardHeader className='header'>
             <div className=' flex flex-col md:flex-row '>
               <div className='flex flex-col items-center'>
-                <img src='https://nextui-docs-v2.vercel.app/images/album-cover.png' className='w-24 h-24 rounded-full sm:w-40 sm:h-40 md:w-36 md:h-36 lg:w-40 lg:h-40' alt="Profile" />
+                <img src={employee.profile_picture|| 'https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678099-profile-filled-256.png'} className='w-24 h-24 rounded-full sm:w-40 sm:h-40 md:w-36 md:h-36 lg:w-40 lg:h-40' alt="Profile" />
               </div>
             </div>
           </CardHeader>

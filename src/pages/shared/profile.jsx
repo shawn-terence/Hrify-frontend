@@ -6,17 +6,17 @@ import { useDisclosure } from '@nextui-org/react';
 const Profile = () => {
   const [user, setUser] = useState({});
   const [formData, setFormData] = useState({});
-  const [editMode, setEditMode] = useState(false); // Toggle between edit and view mode
-  const { isOpen, onOpen, onOpenChange } = useDisclosure(); // For password change modal
+  const [editMode, setEditMode] = useState(false); 
+  const { isOpen, onOpen, onOpenChange } = useDisclosure(); 
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [message, setMessage] = useState('');
   const [messageColor, setMessageColor] = useState('');
-  const [profileImage, setProfileImage] = useState(null); // State for profile image
+  const [profileImage, setProfileImage] = useState(null); 
 
   const token = localStorage.getItem('token');
-  const userId = localStorage.getItem('id'); // Assuming you store the user ID after login
+  const userId = localStorage.getItem('id'); 
 
   // Fetch user details on component mount
   useEffect(() => {
@@ -105,7 +105,7 @@ const Profile = () => {
           <div className='flex flex-col md:flex-row '>
             <div className='flex flex-col items-center'>
               <img 
-                src={user.profile_picture_url || 'https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678099-profile-filled-64.png'} 
+                src={user.profile_picture_url || 'https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678099-profile-filled-256.png'} 
                 className='w-24 h-24 rounded-full sm:w-40 sm:h-40 md:w-36 md:h-36 lg:w-40 lg:h-40'
                 alt='Profile Avatar'
               />

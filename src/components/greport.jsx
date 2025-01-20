@@ -14,7 +14,7 @@ const GReport = () => {
    
     const fetchReports = async () => {
       try {
-        const response = await axios.get(`https://hrify-backend.onrender.com/report/${id}/`, {
+        const response = await axios.get(`https://hrify-backend.onrender.com/reports/${id}/admin/`, {
           headers: {
             'Authorization': `Token ${token}`, 
           },

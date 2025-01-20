@@ -70,7 +70,7 @@ const CreateReport = () => {
               required
             />
             <Spacer y={2} />
-            <Button type="submit">Submit Report</Button>
+            <button className='btnM' type="submit">Submit Report</button>
           </form>
         </CardBody>
         <CardFooter>
