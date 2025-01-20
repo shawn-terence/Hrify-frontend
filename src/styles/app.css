@@ -8,6 +8,11 @@
     font-size: 12px;
     font-weight: 700;
   }
+  .loader{
+    width: 99%;
+    padding-left: 4px;
+    padding-right: 4px
+  }
   .login-container {
     position: relative;
     top:20vh;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/react';
+import { Card, CardHeader, CardBody, CardFooter, Progress } from '@nextui-org/react';
 import { Input } from '@nextui-org/input';
 import { Image } from '@nextui-org/react';
 import { useNavigate } from 'react-router-dom';
@@ -8,11 +8,34 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-    setError(''); // Clear previous errors
+    e.preventDefault();
+    setError('');
+    setIsLoading(true); // Show progress bar
+    setLoadingMessage('Initializing...'); // Initial status
+
+    // Status messages to show during progress
+    const statusMessages = [
+      'Authenticating...',
+      'Accessing database...',
+      'Validating credentials...',
+      'Establishing secure session...',
+    ];
+
+    // Update loading messages in intervals
+    let messageIndex = 0;
+    const interval = setInterval(() => {
+      if (messageIndex < statusMessages.length) {
+        setLoadingMessage(statusMessages[messageIndex]);
+        messageIndex++;
+      }
+    }, 2000); 
+
+    const startTime = performance.now();
 
     try {
       const response = await fetch('https://hrify-backend.onrender.com/user/login/', {
@@ -23,46 +46,57 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
 
+      clearInterval(interval); // Stop updating messages
+      setLoadingMessage('Processing response...');
+
+      const endTime = performance.now();
+      console.log(`Backend responded in ${(endTime - startTime).toFixed(2)} milliseconds`);
+
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('id', data.id);
+        setLoadingMessage('Login successful!');
+        setTimeout(() => {
+          setIsLoading(false);
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('id', data.id);
 
-        // Redirect based on user role
-        if (data.role === 'employee') {
-          navigate('/emp/emphome');
-        } else if (data.role === 'admin') {
-          navigate('/adm/admhome');
-        }
-      } else if (response.status === 401) {
-        setError('Invalid email or password');
+          if (data.role === 'employee') {
+            navigate('/emp/emphome');
+          } else if (data.role === 'admin') {
+            navigate('/adm/admhome');
+          }
+        }, 1000); // Add slight delay before navigating
       } else {
-        setError(data.message || 'An error occurred. Please try again.');
+        setIsLoading(false);
+        setError('Invalid email or password');
       }
     } catch (error) {
+      clearInterval(interval);
+      setIsLoading(false);
       setError('An error occurred. Please check your network connection and try again.');
     }
   };
+
   return (
     <div className="login-container">
-      <div className="">
-        <Card id='login-card' className='bg-transparent'>
-          <CardHeader className='flex flex-col'>
-            <div className="">
+      <div>
+        <Card id="login-card" className="bg-transparent">
+          <CardHeader className="flex flex-col">
+            <div>
               <Image
                 id="Logo"
                 width={80}
                 radius="full"
-                src='https://cdn4.iconfinder.com/data/icons/online-shop-7/128/team-people-group-256.png'
+                src="https://cdn4.iconfinder.com/data/icons/online-shop-7/128/team-people-group-256.png"
               />
-              <p className='pl-4 mt-2 text-lg font-bold text-white'>Hrify</p>
+              <p className="pl-4 mt-2 text-lg font-bold text-white">Hrify</p>
             </div>
           </CardHeader>
           <CardBody>
             <form onSubmit={handleLogin}>
               <Input
-                type='email'
+                type="email"
                 label="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -75,20 +109,26 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 className="bg-transparent pb-4"
               />
-              <button type='submit' className="btnM">
-                <p>Login</p>
+              <button type="submit" className="btnM" disabled={isLoading}>
+                <p>{isLoading ? 'Processing...' : 'Login'}</p>
               </button>
-              {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
+              {error && <p style={{ color: 'red' }}>{error}</p>}
             </form>
           </CardBody>
-          <CardFooter className='grid text-white font-semibold'>
+          {isLoading && (
+            <div className="loader">
+              <Progress isIndeterminate radius="sm" />
+              <p className="text-center mt-2 text-white">{loadingMessage}</p>
+            </div>
+          )}
+          <CardFooter className="grid text-white font-semibold">
             <div>
-              <p>Employee email:john.doe@example.com</p>
-              <p>password:password123</p>
+              <p>Employee email: john.doe@example.com</p>
+              <p>Password: password123</p>
             </div>
             <div>
-              <p> Admin email:jane.doe@example.com</p>
-              <p>password:password123</p>
+              <p>Admin email: jane.doe@example.com</p>
+              <p>Password: password123</p>
             </div>
           </CardFooter>
         </Card>
