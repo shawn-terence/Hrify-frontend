@@ -45,7 +45,7 @@ const ProjectsList = () => {
   return (
     <div>
       <h2 className='text-xl font-bold text-center'>Ongoing Projects</h2>
-      <Table>
+      <Table isStriped>
         <TableHeader>
           <TableColumn>Name</TableColumn>
           <TableColumn>Description</TableColumn>
