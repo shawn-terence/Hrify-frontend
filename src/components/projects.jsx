@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@nextui-org/react";
-import axios from 'axios'; // Import axios
+import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
+import axios from 'axios';
 
 const ProjectsList = () => {
   const [projects, setProjects] = useState([]);
@@ -65,11 +65,16 @@ const ProjectsList = () => {
               <TableCell>{project.start_date}</TableCell>
               <TableCell>{project.end_date || 'N/A'}</TableCell>
               <TableCell>
-                <ul>
-                  {project.employee_emails.map((email, index) => (
-                    <li key={index}>{email}</li>
-                  ))}
-                </ul>
+                <Dropdown>
+                  <DropdownTrigger>
+                    <Button variant="bordered">Team Emails</Button>
+                  </DropdownTrigger>
+                  <DropdownMenu aria-label="Employee Emails">
+                    {project.employee_emails.map((email, index) => (
+                      <DropdownItem key={index}>{email}</DropdownItem>
+                    ))}
+                  </DropdownMenu>
+                </Dropdown>
               </TableCell>
             </TableRow>
           ))}
