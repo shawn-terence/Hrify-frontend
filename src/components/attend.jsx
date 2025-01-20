@@ -12,7 +12,7 @@ const Attend = ({ onAttendanceRefresh }) => {
           'Authorization': `Token ${token}`,
         },
       });
-      onAttendanceRefresh(); // Refresh attendance after clocking in
+      onAttendanceRefresh();
     } catch (error) {
       console.error("Error clocking in", error);
     }
@@ -25,7 +25,7 @@ const Attend = ({ onAttendanceRefresh }) => {
           'Authorization': `Token ${token}`,
         },
       });
-      onAttendanceRefresh(); // Refresh attendance after clocking out
+      onAttendanceRefresh(); 
     } catch (error) {
       console.error("Error clocking out", error);
     }

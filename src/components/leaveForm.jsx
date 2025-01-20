@@ -11,10 +11,10 @@ const LeaveRequestForm = () => {
     const [success, setSuccess] = useState('');
 
     const handleSubmit = async (e) => {
-        e.preventDefault();  // Prevent default form submission behavior
+        e.preventDefault(); 
 
         try {
-            const token = localStorage.getItem("token"); // Example for JWT
+            const token = localStorage.getItem("token"); 
 
             const payload = {
                 date_from: dateFrom,
@@ -27,7 +27,7 @@ const LeaveRequestForm = () => {
                 payload,
                 {
                     headers: {
-                        'Authorization': `Token ${token}`, // Pass token for authentication
+                        'Authorization': `Token ${token}`, 
                         'Content-Type': 'application/json',
                     },
                 }

@@ -46,7 +46,6 @@ const ReportPage = () => {
     setFilteredReports(filtered);
   };
 
-  // useEffect to fetch reports when component mounts
   useEffect(() => {
     fetchReports();
   }, []);

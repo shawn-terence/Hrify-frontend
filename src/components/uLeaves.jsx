@@ -7,7 +7,7 @@ import { Spacer } from '@nextui-org/react';
 const AdLeaves = () => {
   const [leaves, setLeaves] = useState([]);
   const [error, setError] = useState(null);
-  const token = localStorage.getItem('token'); // Replace with token management
+  const token = localStorage.getItem('token'); 
 
   useEffect(() => {
     // Fetch all leave requests
@@ -29,7 +29,7 @@ const AdLeaves = () => {
   const handleAction = async (id, status) => {
     try {
       const response = await axios.patch(`https://hrify-backend.onrender.com/leave/action/${id}/`, 
-        { status }, // Send the status as the body
+        { status },
         {
           headers: {
             'Content-Type': 'application/json',
@@ -37,8 +37,8 @@ const AdLeaves = () => {
           },
         }
       );
-      // Update UI after successful action
-      setLeaves(leaves.filter(leave => leave.id !== id)); // Remove the handled leave from UI
+
+      setLeaves(leaves.filter(leave => leave.id !== id)); 
     } catch (err) {
       setError(err.message);
     }

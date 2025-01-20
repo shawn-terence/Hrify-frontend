@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@nextui-org/table";
 import axios from 'axios';
-import { Input, Spacer } from '@nextui-org/react'; // Import Input for the search bar
+import { Input, Spacer } from '@nextui-org/react';
 import { Button } from '@nextui-org/button';
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
-    const [searchTerm, setSearchTerm] = useState(''); // Search term state
+    const [searchTerm, setSearchTerm] = useState(''); 
     const navigate = useNavigate();
     const token = localStorage.getItem('token');
 
@@ -36,7 +36,7 @@ const UserList = () => {
         navigate(`/adm/write/report/${userId}`);
     };
 
-    // Filter users based on the search term
+    
     const filteredUsers = users.filter(user => 
         `${user.first_name} ${user.last_name}`.toLowerCase().includes(searchTerm.toLowerCase())
     );

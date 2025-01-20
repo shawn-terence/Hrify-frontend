@@ -5,7 +5,7 @@ import axios from 'axios';
 const AdminReports = () => {
   const [reports, setReports] = useState([]);
   const [filteredReports, setFilteredReports] = useState([]);
-  const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
+  const token = localStorage.getItem('token'); 
 
   useEffect(() => {
     const fetchReports = async () => {
@@ -16,10 +16,10 @@ const AdminReports = () => {
           },
         });
 
-        const currentMonth = new Date().getMonth(); // Get current month
+        const currentMonth = new Date().getMonth(); 
         const filtered = response.data.filter((report) => {
           const reportMonth = new Date(report.date).getMonth();
-          return reportMonth === currentMonth; // Filter reports for the current month
+          return reportMonth === currentMonth; 
         });
         setReports(response.data);
         setFilteredReports(filtered);

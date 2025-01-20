@@ -13,7 +13,7 @@ const Navbaradm = () => {
 
   const handleLogout = async () => {
     try {
-      // Send a POST request to the logout endpoint
+      
       const response = await fetch("https://hrify-backend.onrender.com/user/logout/", {
         method: "POST",
         headers: {

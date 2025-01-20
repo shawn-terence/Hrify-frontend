@@ -1,7 +1,7 @@
 //@ts-nocheck
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
-import DefaultLayout from '../../layouts/default'; // Go up two levels
+import DefaultLayout from '../../layouts/default'; 
 import Dashboard from "./dashboard"
 import Profile from "../shared/profile"
 import Attendance from '../shared/attendance';

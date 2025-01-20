@@ -53,7 +53,7 @@ const Dashboard = () => {
             Authorization: `Token ${token}`,
           },
         });
-        setProjects(response.data); // Store projects data
+        setProjects(response.data); 
       } catch (err) {
         console.error('Error fetching projects', err);
         alert('Failed to load projects.');
@@ -81,19 +81,19 @@ const Dashboard = () => {
         <div className="infodiv">
           <Link to="/adm/users">
             <p className="text-lg">Total Employees: {employeeCount}</p>
-            <p className="text-sm text-blue-500">Go to Employees Page</p> {/* Added text */}
+            <p className="text-sm text-blue-500">Go to Employees Page</p> 
           </Link>
         </div>
         <div className="infodiv">
           <Link to="/adm/projects">
             <p className="text-lg">Projects In Progress: {projectStatuses.in_progress || 0}</p>
-            <p className="text-sm text-blue-500">Go to Projects Page</p> {/* Added text */}
+            <p className="text-sm text-blue-500">Go to Projects Page</p> 
           </Link>
         </div>
         <div className="infodiv">
           <Link to="/adm/leaves">
             <p className="text-lg">Pending Leave Requests: {pendingLeaveCount}</p>
-            <p className="text-sm text-blue-500">Go to Leaves Page</p> {/* Added text */}
+            <p className="text-sm text-blue-500">Go to Leaves Page</p> 
           </Link>
         </div>
       </Card>

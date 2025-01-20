@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Import Axios
+import axios from 'axios'; 
 import { Input, Table, TableHeader, Spacer, TableBody, TableColumn, TableRow, TableCell, Button } from '@nextui-org/react';
 import { Select, SelectItem } from '@nextui-org/react';
 
@@ -25,7 +25,7 @@ const Report = () => {
         });
 
         setReports(response.data);
-        setFilteredReports(response.data); // Set initial filtered reports
+        setFilteredReports(response.data); 
       } catch (err) {
         setError(err.response ? err.response.data : 'Failed to fetch reports');
       } finally {

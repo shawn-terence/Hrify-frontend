@@ -28,7 +28,7 @@ const Profile = () => {
           },
         });
         setUser(response.data);
-        setFormData(response.data); // Pre-fill formData with fetched user data
+        setFormData(response.data); 
       } catch (error) {
         console.error('Error fetching user details', error);
         alert('Failed to load user details.');
@@ -40,24 +40,24 @@ const Profile = () => {
 
   // Handle profile update submission
   const handleUpdateProfile = async () => {
-    const updatedData = new FormData(); // Use FormData for image and text data
+    const updatedData = new FormData();
     Object.keys(formData).forEach((key) => {
       updatedData.append(key, formData[key]);
     });
     if (profileImage) {
-      updatedData.append('profile_image', profileImage); // Append profile image if available
+      updatedData.append('profile_image', profileImage);
     }
 
     try {
       const response = await axios.patch('https://hrify-backend.onrender.com/user/update/', updatedData, {
         headers: {
           Authorization: `Token ${token}`,
-          'Content-Type': 'multipart/form-data', // Important for file uploads
+          'Content-Type': 'multipart/form-data', 
         },
       });
 
       setUser(response.data);
-      setEditMode(false); // Exit edit mode after successful update
+      setEditMode(false); 
       alert("Profile updated successfully!");
     } catch (error) {
       console.error('Failed to update profile', error);
@@ -65,7 +65,7 @@ const Profile = () => {
     }
   };
 
-  // Handle password change submission
+  
   const handleChangePassword = async () => {
     if (newPassword !== confirmNewPassword) {
       setMessage("New password and confirm password do not match.");
@@ -86,7 +86,7 @@ const Profile = () => {
       if (response.status === 200) {
         setMessage("Password updated successfully!");
         setMessageColor('green');
-        setOldPassword(''); // Clear input fields
+        setOldPassword('');
         setNewPassword('');
         setConfirmNewPassword('');
       }

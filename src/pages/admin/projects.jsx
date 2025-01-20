@@ -8,23 +8,23 @@ const ProjectsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const token = localStorage.getItem('token'); // Get token from local storage
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get('https://hrify-backend.onrender.com/projects/', {
           headers: {
-            'Authorization': `Token ${token}`, // Assuming token-based auth
+            'Authorization': `Token ${token}`, 
           },
         });
 
-        setProjects(response.data); // Set the fetched projects
-        setFilteredProjects(response.data); // Initialize the filtered projects
+        setProjects(response.data); 
+        setFilteredProjects(response.data);
       } catch (err) {
-        setError(err.message); // Set error message if the fetch fails
+        setError(err.message); 
       } finally {
-        setLoading(false); // Set loading to false at the end
+        setLoading(false); 
       }
     };
 
@@ -47,7 +47,7 @@ const ProjectsPage = () => {
   }
 
   if (error) {
-    return <p style={{ color: 'red' }}>Error fetching projects: {error}</p>; // Change color property to inline style
+    return <p style={{ color: 'red' }}>Error fetching projects: {error}</p>; 
   }
 
   return (

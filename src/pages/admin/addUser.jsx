@@ -8,7 +8,7 @@ const AddUser = () => {
     last_name: '',
     phone_number: '',
     department: '',
-    role: 'employee', // default role
+    role: 'employee', 
     password: '',
     email: '',
     salary: '',
@@ -18,7 +18,7 @@ const AddUser = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
-  // Handle input changes
+ 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -26,11 +26,11 @@ const AddUser = () => {
     });
   };
 
-  // Handle form submission
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Get the token from localStorage
+
     const token = localStorage.getItem('token');
     
     if (!token) {
@@ -38,21 +38,21 @@ const AddUser = () => {
       return;
     }
 
-    // Set up the config with headers for token authentication
+
     const config = {
       headers: {
-        'Authorization': `Token ${token}`, // Django's token auth format
+        'Authorization': `Token ${token}`,
         'Content-Type': 'application/json',
       },
     };
 
-    // Send the request with the form data
+
     axios
       .post('https://hrify-backend.onrender.com/user/create/', formData, config)
       .then((response) => {
         setSuccessMessage('User created successfully!');
         setErrorMessage('');
-        // Reset form fields after successful submission
+        
         setFormData({
           first_name: '',
           last_name: '',

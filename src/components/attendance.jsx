@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@nextui-org/table";
-import Attend from './attend'; // Import the Attend component
+import Attend from './attend'; 
 
 const AttendanceC = () => {
-  const [attendance, setAttendance] = useState([]); // State to store all attendance data
-  const [weeklyAttendance, setWeeklyAttendance] = useState([]); // State to store this week's attendance
-  const [loading, setLoading] = useState(true); // State to manage loading status
-  const [error, setError] = useState(""); // State for error messages
+  const [attendance, setAttendance] = useState([]); 
+  const [weeklyAttendance, setWeeklyAttendance] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(""); 
   const employeeId = localStorage.getItem("id");
   const token=localStorage.getItem('token')
   useEffect(() => {
@@ -18,18 +18,18 @@ const AttendanceC = () => {
             'Authorization': `Token ${token}`,
           },
         });
-        setAttendance(response.data); // Set all attendance data
-        filterWeeklyAttendance(response.data); // Filter to set weekly attendance
+        setAttendance(response.data);
+        filterWeeklyAttendance(response.data); 
       } catch (error) {
         console.error("Error fetching attendance data", error);
-        setError("Failed to fetch attendance data."); // Set error message
+        setError("Failed to fetch attendance data.");
       } finally {
-        setLoading(false); // Set loading to false after request
+        setLoading(false); 
       }
     };
 
     fetchAttendance();
-  }, [employeeId]); // Dependency on employeeId
+  }, [employeeId]); 
 
   const filterWeeklyAttendance = (data) => {
     const today = new Date();
@@ -45,24 +45,23 @@ const AttendanceC = () => {
       return recordDate >= startOfWeek && recordDate <= endOfWeek;
     });
 
-    setWeeklyAttendance(weeklyRecords); // Update the state with filtered records
+    setWeeklyAttendance(weeklyRecords); 
   };
 
   const handleAttendanceRefresh = () => {
-    // Function to refresh attendance data
-    fetchAttendance(); // Call fetchAttendance here
+    fetchAttendance(); 
   };
 
   if (loading) {
     return <div>Loading...</div>;
   }
   const formatTime = (timeString) => {
-    if (!timeString) return 'N/A'; // Return 'N/A' if no time is provided
+    if (!timeString) return 'N/A';
 
-    // Split the time string by ':'
+    
     const timeParts = timeString.split(':');
 
-    // Return the formatted time as 'HH:MM'
+   
     return timeParts.length >= 3 ? `${timeParts[0]}:${timeParts[1]}` : 'Invalid Time';
 };
   return (

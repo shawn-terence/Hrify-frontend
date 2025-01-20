@@ -46,7 +46,7 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      clearInterval(interval); // Stop updating messages
+      clearInterval(interval);
       setLoadingMessage('Processing response...');
 
       const endTime = performance.now();

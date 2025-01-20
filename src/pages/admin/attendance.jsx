@@ -3,14 +3,14 @@ import axios from "axios";
 import { Input, Table, TableHeader,Spacer, TableBody, TableColumn, TableRow, TableCell, Button } from '@nextui-org/react';
 import { Card,CardBody} from "@nextui-org/react";
 const AttendancePage = () => {
-  const [allAttendances, setAllAttendances] = useState([]);  // Store all records fetched from backend
-  const [filteredAttendances, setFilteredAttendances] = useState([]); // Store filtered records
+  const [allAttendances, setAllAttendances] = useState([]);  
+  const [filteredAttendances, setFilteredAttendances] = useState([]);
   const [employeeName, setEmployeeName] = useState("");
   const [date, setDate] = useState("");
   const [timeIn, setTimeIn] = useState("");
   const [timeOut, setTimeOut] = useState("");
   const token=localStorage.getItem("token")
-  // Fetch all attendance records from the backend
+
   const fetchAllAttendance = async () => {
     try {
       const response = await axios.get("https://hrify-backend.onrender.com/attendance/",{
@@ -18,8 +18,8 @@ const AttendancePage = () => {
           'Authorization': `Token ${token}`,
       },
       });
-      setAllAttendances(response.data);  // Store the complete attendance records
-      setFilteredAttendances(response.data);  // Initially, filtered data is the same as all data
+      setAllAttendances(response.data); 
+      setFilteredAttendances(response.data); 
     } catch (error) {
       console.error("Error fetching attendance", error);
     }
@@ -30,12 +30,12 @@ const AttendancePage = () => {
     fetchAllAttendance();
   }, []);
 
-  // Filter attendance records based on form input
+
   const handleSearch = (e) => {
     e.preventDefault();
 
     const filtered = allAttendances.filter((attendance) => {
-      // Check employee name (case-insensitive)
+      
       const matchesEmployee = employeeName
         ? attendance.employee.username.toLowerCase().includes(employeeName.toLowerCase())
         : true;

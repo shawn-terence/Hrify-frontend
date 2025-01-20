@@ -19,9 +19,9 @@ const EmployeeDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
-  const token = localStorage.getItem('token'); // Get token from localStorage
+  const token = localStorage.getItem('token');
   useEffect(() => {
-    // Fetch employee data
+
     const fetchEmployee = async () => {
       try {
         const response = await axios.get(`https://hrify-backend.onrender.com/user/${Id}/details/`, {
@@ -30,10 +30,9 @@ const EmployeeDetails = () => {
           },
         });
     
-        // Assuming the response data structure is correct
         setEmployee(response.data);
       } catch (err) {
-        setError(err.response?.data?.detail || err.message); // Use response detail for better error handling
+        setError(err.response?.data?.detail || err.message);
       } finally {
         setLoading(false);
       }

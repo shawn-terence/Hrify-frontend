@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Spacer, TableCell, TableColumn, TableBody, TableRow, TableHeader } from '@nextui-org/react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios'; // Import axios
+import axios from 'axios'; 
 
 const GReport = () => {
   const [reports, setReports] = useState([]);
@@ -11,19 +11,19 @@ const GReport = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    // Fetch all reports from the API using axios
+   
     const fetchReports = async () => {
       try {
         const response = await axios.get(`https://hrify-backend.onrender.com/report/${id}/`, {
           headers: {
-            'Authorization': `Token ${token}`, // Assuming token-based auth
+            'Authorization': `Token ${token}`, 
           },
         });
 
-        setReports(response.data); // Set the fetched reports data
+        setReports(response.data);
         setLoading(false);
       } catch (err) {
-        setError(err.message); // Capture and set any error message
+        setError(err.message);
         setLoading(false);
       }
     };

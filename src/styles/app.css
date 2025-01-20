@@ -89,7 +89,6 @@
   .admstats {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: row; */
     min-height: min-content;
     min-width: fit-content;
     align-items: center;
@@ -216,7 +215,6 @@
   }
   /* Responsive styles */
   @media (max-width: 768px) {
-    /* Hide sidebar and show mobile navbar */
     .header{
       display: flex;
       flex-direction: column;
@@ -242,8 +240,4 @@
     #login-card{
       width: 400px;
     }
-    /* #admstats{
-      display: flex;
-      flex-direction: row;
-    } */
   }

@@ -18,8 +18,8 @@ function Attendance() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredAttendance, setFilteredAttendance] = useState([]);
   const [page, setPage] = useState(1);
-  const rowsPerPage = 10; // Number of rows per page
-  const employeeId = localStorage.getItem("id"); // Get employee ID from local storage
+  const rowsPerPage = 10; 
+  const employeeId = localStorage.getItem("id"); 
   const token =localStorage.getItem('token')
   // Fetch attendance records
   useEffect(() => {

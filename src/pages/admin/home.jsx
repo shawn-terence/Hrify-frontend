@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
-import AdminLayout from '../../layouts/admin'; // Go up two levels
+import AdminLayout from '../../layouts/admin'; 
 import Dashboard from "./dashboard"
 import Profile from "../shared/profile"
 import Attendance from '../shared/attendance';

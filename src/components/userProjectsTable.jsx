@@ -33,20 +33,20 @@ const UserProjectsTable = () => {
           },
         })
         .then((response) => {
-          // Update the project in the list with the new status
+          
           setProjects(
             projects.map((project) =>
               project.id === projectId ? { ...project, status: newStatus } : project
             )
           );
-          alert("Status updated successfully!"); // Success message
+          alert("Status updated successfully!"); 
         })
         .catch((error) => {
           console.error("Error updating project status", error);
           if (error.response && error.response.status === 403) {
-            alert("Only project managers can update a project's status"); // Forbidden message
+            alert("Only project managers can update a project's status"); 
           } else {
-            alert("An error occurred while updating the status."); // General error message
+            alert("An error occurred while updating the status."); 
           }
         })
         .finally(() => {

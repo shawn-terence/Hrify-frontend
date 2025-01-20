@@ -12,7 +12,7 @@ const CreateProjectForm = () => {
   const [searchEmail, setSearchEmail] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const token=localStorage.getItem('token')
-  // Function to handle search for users by email
+
   const handleSearch = async (e) => {
     const email = e.target.value;
     setSearchEmail(email);
@@ -29,17 +29,17 @@ const CreateProjectForm = () => {
         console.error("Error fetching users", error);
       }
     } else {
-      setSearchResults([]); // Clear search results if email length < 3
+      setSearchResults([]); 
     }
   };
 
-  // Function to add selected employee to the list
+  
   const addEmployee = (email) => {
     if (!employees.includes(email)) {
       setEmployees([...employees, email]);
     }
-    setSearchResults([]); // Clear search results after selection
-    setSearchEmail(""); // Clear the search input
+    setSearchResults([]); 
+    setSearchEmail("");
   };
   const removeEmployee = (email) => {
     setEmployees(employees.filter((emp) => emp !== email));
@@ -60,10 +60,10 @@ const CreateProjectForm = () => {
           'Authorization': `Token ${token}`
         }
       });
-      // Handle success (show message, redirect, etc.)
+
     } catch (error) {
       console.error(error.response.data);
-      // Handle error (show error message, etc.)
+
     }
   };
 

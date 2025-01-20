@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Input, Button, Textarea, Spacer } from '@nextui-org/react';
 import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/react';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 
 const CreateReport = () => {
-  const { id } = useParams(); // Assuming you're getting the user_id from the route
+  const { id } = useParams();
   const [category, setCategory] = useState('');
   const [reportText, setReportText] = useState('');
-  const [date, setDate] = useState(new Date().toISOString().split('T')[0]); // Default to today
+  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
   
@@ -25,15 +25,15 @@ const CreateReport = () => {
       }, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Token ${token}`, // Assuming token-based auth
+          'Authorization': `Token ${token}`,
         },
       });
 
-      if (response.status === 201) { // Assuming a successful creation returns a 201 status
+      if (response.status === 201) { 
         setSuccess(true);
         setCategory('');
         setReportText('');
-        setDate(new Date().toISOString().split('T')[0]); // Reset date to today
+        setDate(new Date().toISOString().split('T')[0]); 
       }
     } catch (err) {
       const errorData = err.response ? err.response.data : { detail: 'Failed to create report' };
