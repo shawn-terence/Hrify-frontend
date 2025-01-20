@@ -29,7 +29,7 @@ const Report = () => {
       } catch (err) {
         setError(err.response ? err.response.data : 'Failed to fetch reports');
       } finally {
-        setLoading(false); // Ensure loading state is updated
+        setLoading(false);
       }
     };
 
@@ -41,7 +41,7 @@ const Report = () => {
           },
         });
 
-        setCategories(response.data); // Populate category dropdown
+        setCategories(response.data); 
       } catch (err) {
         console.error('Error fetching categories:', err);
       }
@@ -51,7 +51,6 @@ const Report = () => {
     fetchCategories();
   }, [token]);
 
-  // Handle search by employee name
   const handleSearch = () => {
     const searchedReports = reports.filter((report) =>
       report.employee_name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -59,7 +58,6 @@ const Report = () => {
     setFilteredReports(searchedReports);
   };
 
-  // Handle filter by category and date
   const handleFilter = () => {
     let filtered = reports;
 
@@ -76,24 +74,27 @@ const Report = () => {
 
   return (
     <div>
-      <h2 className='text-3xl text-center font-bold'>Reports Page</h2>
+      <h2 className="text-3xl text-center font-bold">Reports Page</h2>
       <Spacer y={2} />
 
       {/* Search by Name */}
-      <div className='flex flex-row gap-2'>
+      <div className="flex flex-col md:flex-row gap-2">
         <Input
           label="Search by Employee Name"
           placeholder="Enter employee"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           clearable
+          className="w-full"
         />
-        <button className='btnM' onClick={handleSearch}>Search</button>
+        <button className="btnM w-full md:w-auto" onClick={handleSearch}>
+          Search
+        </button>
       </div>
       <Spacer y={2} />
 
       {/* Filter by Category and Date */}
-      <div className='grid grid-cols-2 gap-2'>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         <Select
           label="Filter by Category"
           placeholder="Select category"
@@ -114,7 +115,9 @@ const Report = () => {
         />
       </div>
       <Spacer y={2} />
-      <button className='btnM' onClick={handleFilter}>Filter</button>
+      <button className="btnM w-full md:w-auto" onClick={handleFilter}>
+        Filter
+      </button>
       <Spacer y={2} />
 
       {/* Display Error */}

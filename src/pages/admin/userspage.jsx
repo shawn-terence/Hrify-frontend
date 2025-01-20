@@ -15,7 +15,7 @@ const Users = () => {
             <UserList/>
           </div>
         </Tab>
-        <Tab key="2" title="employee things">
+        <Tab key="2" title="employee stats">
           <div>
             <ProjectsList/>
           </div>

@@ -83,7 +83,7 @@ const EmployeeDetails = () => {
   return (
     <div>
       <div>
-        <h2>Employee Details</h2>
+        <h2 className='text-3xl font-bold text-center'>Employee Details</h2>
         <Spacer y={2} />
         <Card>
           <CardHeader className='header'>
@@ -125,8 +125,8 @@ const EmployeeDetails = () => {
             </div>
           </CardBody>
           <CardFooter className='grid grid-cols-2 gap-4'>
-            <Button onClick={handleUpdate}>Update Info</Button>
-            <Button>Delete</Button>
+            <button className='btnM' onClick={handleUpdate}>Update Info</button>
+            <button className='btnM' >Delete</button>
           </CardFooter>
         </Card>
         {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}

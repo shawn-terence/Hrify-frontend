@@ -71,7 +71,7 @@ const ReportPage = () => {
           className="flex-1 min-w-[150px]"
         />
         <button
-          className=" btnM px-4 py-2 rounded-md hover:bg-blue-600 min-w-[120px] btnM"
+          className=" btnM px-4 py-2  btnM"
           onClick={handleFilter}
         >
           Filter
