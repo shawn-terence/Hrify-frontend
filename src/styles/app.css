@@ -229,6 +229,14 @@
     #login-card{
       width: 400px;
     }
+  }
+  @media (min-width: 902px),(max-width:1023){
+    #mainCont{
+      margin-left: 19vw;
+    }
+    #login-card{
+      width: 400px;
+    }
     /* #admstats{
       display: flex;
       flex-direction: row;
