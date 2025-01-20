@@ -35,7 +35,7 @@ const Login = () => {
       }
     }, 2000); 
 
-    const startTime = performance.now();
+
 
     try {
       const response = await fetch('https://hrify-backend.onrender.com/user/login/', {
@@ -49,8 +49,7 @@ const Login = () => {
       clearInterval(interval);
       setLoadingMessage('Processing response...');
 
-      const endTime = performance.now();
-      console.log(`Backend responded in ${(endTime - startTime).toFixed(2)} milliseconds`);
+
 
       const data = await response.json();
 
