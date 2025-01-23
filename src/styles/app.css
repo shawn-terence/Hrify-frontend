@@ -11,7 +11,10 @@
   .loader{
     width: 99%;
     padding-left: 4px;
-    padding-right: 4px
+    padding-right: 4px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
   }
   .login-container {
     position: relative;
@@ -26,7 +29,7 @@
     background-image: linear-gradient(to right top, #13213d, #173262, #1c4489, #2356b2, #2f69ddd7);
     width: 300px;
   }
-    
+  
   .bg-danger {
       
       background-color: #ff4d4f;
