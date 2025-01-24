@@ -60,11 +60,11 @@ const Login = () => {
           localStorage.setItem('token', data.token);
           localStorage.setItem('id', data.id);
 
-          // if (data.role === 'employee') {
-          //   navigate('/emp/emphome');
-          // } else if (data.role === 'admin') {
-          //   navigate('/adm/admhome');
-          // }
+          if (data.role === 'employee') {
+            navigate('/emp/emphome');
+          } else if (data.role === 'admin') {
+            navigate('/adm/admhome');
+          }
         }, 1000); // Add slight delay before navigating
       } else {
         setIsLoading(false);
