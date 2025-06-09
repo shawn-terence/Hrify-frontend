@@ -10,7 +10,7 @@ export default function AdminLayout({
   return (
     <div className="relative flex flex-col  h-screen">
       <Navbaradm />
-      <p className="font-black text-5xl text-center">hello</p>
+      <p className="font-black text-5xl text-center">hellos</p>
 
       <main id="mainCont" className="container   mx-auto lg:mx-36   border shadow-lg rounded-xl mt-10 max-w-7xl px-6  flex-grow pt-8 pb-8" >
         {children}
