@@ -14,7 +14,7 @@ export default function DefaultLayout({
         {children}
       </main>
       <footer className="w-full flex items-center justify-center py-3">
-        <p className="text-lg font-bold text-gray-500">Hrify 2024</p>
+        <p className="text-lg font-bold text-gray-500">Hrify 2025</p>
       </footer>
     </div>
   );

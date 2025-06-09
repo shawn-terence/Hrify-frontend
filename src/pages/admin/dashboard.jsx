@@ -77,24 +77,26 @@ const Dashboard = () => {
       <div>
         <Attend />
       </div>
-      <Card class='admstats'>
-        <div className="infodiv">
-          <Link to="/adm/users">
-            <p className="text-lg">Total Employees: {employeeCount}</p>
-            <p className="text-sm text-blue-500">Go to Employees Page</p> 
-          </Link>
-        </div>
-        <div className="infodiv">
-          <Link to="/adm/projects">
-            <p className="text-lg">Projects In Progress: {projectStatuses.in_progress || 0}</p>
-            <p className="text-sm text-blue-500">Go to Projects Page</p> 
-          </Link>
-        </div>
-        <div className="infodiv">
-          <Link to="/adm/leaves">
-            <p className="text-lg">Pending Leave Requests: {pendingLeaveCount}</p>
-            <p className="text-sm text-blue-500">Go to Leaves Page</p> 
-          </Link>
+      <Card >
+        <div className='admstats'>
+            <div className="infodiv">
+              <Link to="/adm/users">
+                <p className="text-lg">Total Employees: {employeeCount}</p>
+                <p className="text-sm text-blue-500">Go to Employees Page</p> 
+              </Link>
+            </div>
+            <div className="infodiv">
+              <Link to="/adm/projects">
+                <p className="text-lg">Projects In Progress: {projectStatuses.in_progress || 0}</p>
+                <p className="text-sm text-blue-500">Go to Projects Page</p> 
+              </Link>
+            </div>
+            <div className="infodiv">
+              <Link to="/adm/leaves">
+                <p className="text-lg">Pending Leave Requests: {pendingLeaveCount}</p>
+                <p className="text-sm text-blue-500">Go to Leaves Page</p> 
+              </Link>
+            </div>
         </div>
       </Card>
       <div>

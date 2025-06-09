@@ -91,9 +91,10 @@
   }
   .admstats {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     min-height: min-content;
-    min-width: fit-content;
+    min-width: 100%;
     align-items: center;
     justify-content: center;
 
@@ -191,8 +192,8 @@
     z-index: 1000; /* Increase z-index */
     background: rgba( 255, 255, 255, 0.3 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 17px );
     -webkit-backdrop-filter: blur( 17px );
+    backdrop-filter: blur( 17px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
   }
