@@ -35,7 +35,7 @@ const Navbaradm = () => {
   };
 
   return (
-    <div className="adnavbar">
+    <div >
       {/* Sidebar for desktop */}
       <div className={`adsidebar ${menuOpen ? "open" : ""}`}>
         <div className="font-bold text-base flex flex-col">
