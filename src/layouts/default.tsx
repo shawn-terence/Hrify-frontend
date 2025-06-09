@@ -1,6 +1,6 @@
 
 
-import  Navbar  from "../components/navbarr";
+import  Navbar  from "../components/empnavbar";
 
 export default function DefaultLayout({
   children,
