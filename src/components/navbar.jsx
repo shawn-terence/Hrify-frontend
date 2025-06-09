@@ -35,7 +35,7 @@ const Navbaradm = () => {
   };
 
   return (
-    <nav className="adnavbar">
+    <div className="adnavbar">
       {/* Sidebar for desktop */}
       <div className={`adsidebar ${menuOpen ? "open" : ""}`}>
         <div className="font-bold text-base flex flex-col">
@@ -171,7 +171,7 @@ const Navbaradm = () => {
           </div>
         )}
       </div>
-    </nav>
+    </div>
   );
 };
 
