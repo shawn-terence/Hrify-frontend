@@ -1,6 +1,6 @@
 
 
-import  Navbaradm  from "../components/empnav";
+import  Navbar  from "../components/empnavbar";
 
 export default function DefaultLayout({
   children,
@@ -9,7 +9,7 @@ export default function DefaultLayout({
 }) {
   return (
     <div className="relative flex flex-col  h-screen">
-      <Navbaradm />
+      <Navbar />
       <main id="mainCont" className="container  self-center mx-auto lg:mx-36   border shadow-lg rounded-xl mt-10 max-w-7xl px-6  flex-grow pt-8 pb-8" >
         {children}
       </main>

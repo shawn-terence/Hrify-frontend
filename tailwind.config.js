@@ -16,7 +16,6 @@ module.exports = {
     "sidebar",
     "navbar-mobile",
     "dropdown",
-    // add other custom class names used in your layout
   ],
   theme: {
     extend: {},
