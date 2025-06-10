@@ -24,7 +24,6 @@ const Dashboard = () => {
         setEmployeeCount(users.length);
       } catch (error) {
         console.error('Error fetching users list', error);
-        alert('Failed to load employee count.');
       }
     };
 
@@ -41,7 +40,6 @@ const Dashboard = () => {
         setPendingLeaveCount(pendingLeaves.length);
       } catch (err) {
         console.error('Error fetching leave requests', err);
-        alert('Failed to load leave requests.');
       }
     };
 
@@ -56,7 +54,6 @@ const Dashboard = () => {
         setProjects(response.data); 
       } catch (err) {
         console.error('Error fetching projects', err);
-        alert('Failed to load projects.');
       }
     };
 

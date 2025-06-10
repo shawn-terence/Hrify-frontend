@@ -31,7 +31,6 @@ const Profile = () => {
         setFormData(response.data); 
       } catch (error) {
         console.error('Error fetching user details', error);
-        alert('Failed to load user details.');
       }
     };
 
