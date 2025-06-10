@@ -2,6 +2,7 @@
 
 
 import Navbaradm from "../components/admnavbar"
+import Admninmvt from"../components/adminmvt"
 export default function AdminLayout({
   children,
 }: {
@@ -9,7 +10,7 @@ export default function AdminLayout({
 }) {
   return (
     <div className="relative flex flex-col  h-screen">
-       
+       <Admninmvt/>
       <main id="mainCont" className="container   mx-auto lg:mx-36   border shadow-lg rounded-xl mt-10 max-w-7xl px-6  flex-grow pt-8 pb-8" >
         <Navbaradm/>
         {children}
