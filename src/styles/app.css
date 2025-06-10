@@ -44,7 +44,7 @@
     position: relative;
     top: 2rem;
   }
-  .adsidebar{
+  .admsidebar{
     background-color:#13213d;
     position: fixed;
     width: 190px;
@@ -81,7 +81,7 @@
     font-weight: 700;
   }
   
-  .sidebar,.adsidebar ul li {
+  .sidebar,.admsidebar ul li {
     margin: 20px 0;
   }
   #side-footer{
@@ -146,7 +146,7 @@
     font-size: 18px;
   }
   /* Navbar for mobile */
-  .adnavbar-mobile{
+  .admnavbar-mobile{
     display: none;
     width: 100%;
     height: 5rem;
@@ -168,7 +168,7 @@
     z-index: 1000; 
   }
   
-  .navbar-header,.adnavbar-header {
+  .navbar-header,.admnavbar-header {
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -208,11 +208,11 @@
   }
   
   @media screen and (max-width: 900px) {
-    .sidebar,.adsidebar {
+    .sidebar,.admsidebar {
       display: none;
     }
   
-    .navbar-mobile,.adnavbar-mobile {
+    .navbar-mobile,.admnavbar-mobile {
       display: block;
   
     }

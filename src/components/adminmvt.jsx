@@ -37,7 +37,7 @@ const Navbaradm = () => {
   return (
     <div >
       {/* Sidebar for desktop */}
-      <div className={`adsidebar ${menuOpen ? "open" : ""}`}>
+      <div className={`admsidebar ${menuOpen ? "open" : ""}`}>
         <div className="font-bold text-base flex flex-col">
           <div className="flex flex-col">
             <Image
@@ -105,8 +105,8 @@ const Navbaradm = () => {
       </div>
 
       {/* Navbar for mobile */}
-      <div className="adnavbar-mobile">
-        <div className="adnavbar-header">
+      <div className="admnavbar-mobile">
+        <div className="admnavbar-header">
           <div className="flex flex-row items-center gap-2 pt-2">
             <Image
               id="Logo"
