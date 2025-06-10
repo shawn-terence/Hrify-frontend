@@ -1,7 +1,7 @@
 
 
 
-import Navbaradm from "../components/admnavbar"
+
 import Admninmvt from"../components/adminmvt"
 export default function AdminLayout({
   children,
