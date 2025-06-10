@@ -1,4 +1,4 @@
-import {nextui} from '@nextui-org/theme'
+import { nextui } from '@nextui-org/theme'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,10 +9,18 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
+  safelist: [
+    "adsidebar",
+    "adnavbar-mobile",
+    "addropdown",
+    "sidebar",
+    "navbar-mobile",
+    "dropdown",
+    // add other custom class names used in your layout
+  ],
   theme: {
     extend: {},
   },
   darkMode: "class",
-  darkMode: "class",
- plugins: [nextui()],
+  plugins: [nextui()],
 }
