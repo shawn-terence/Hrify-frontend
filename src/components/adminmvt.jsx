@@ -50,41 +50,40 @@ const Navbaradm = () => {
           <div id="linkbox" className="text-base">
             <Spacer y={4} />
             <Spacer y={2} />
-            <Link to="/adm/admhome">
-              <p className="text-base">Home</p>
-            </Link>
-            <Spacer y={2} />
-            <Link to="/adm/attendance">
-              <p className="text-base">Attendance</p>
-            </Link>
-            <Spacer y={2} />
-            <Link to="/adm/leave">
-              <p className="text-base">Leave Requests</p>
-            </Link>
-            <Spacer y={2} />
-            <Link to="/adm/reports">
-              <p className="text-base">My Reports</p>
-            </Link>
+              <p className="text-base">
+              <Link to="/adm/admhome">Home</Link>
+              </p>
+              <Spacer y={2} />
+              <p className="mb-2 text-base">
+              <Link to="/adm/attendance">Attendance</Link></p>
+              <Spacer y={2} />
+              <p className="mb-2 text-base">
+                <Link to="/adm/leave">Leave Requests</Link>
+              </p>
+              <Spacer y={2} />
+              <p className="mb-2 text-base">
+                <Link to="/adm/reports">My Reports</Link>
+              </p>
             <Spacer y={4} />
             <Spacer y={2} />
-            <Link to="/adm/users">
-              <p className="mb-4 text-base">Employees</p>
-            </Link>
-            <Link to="/adm/adduser">
-              <p className="mb-4 text-base">Add Employee</p>
-            </Link>
-            <Link to="/adm/projects">
-              <p className="mb-4 text-base">Projects</p>
-            </Link>
-            <Link to="/adm/leaves">
-              <p className="mb-4 text-base">Leaves</p>
-            </Link>
-            <Link to="/adm/report">
-              <p className="mb-4 text-base">View Reports</p>
-            </Link>
-            <Link to="/adm/attendancepage">
-              <p className="mb-4 text-base">Attendances</p>
-            </Link>
+            <p className="mb-4 text-base">
+                <Link to="/adm/users">Employees</Link>
+            </p>
+            <p className="mb-4 text-base">
+                <Link to="/adm/adduser">Add Employee</Link>
+            </p>
+            <p className="mb-4 text-base">
+                <Link to="/adm/projects">Projects</Link>
+            </p>
+            <p className="mb-4 text-base">
+                <Link to="/adm/leaves">Leaves</Link>
+            </p>
+            <p className="mb-4 text-base">
+                <Link to="/adm/report">View Reports</Link>
+            </p>
+            <p className="mb-4 text-base">
+                <Link to="/adm/attendancepage">Attendances</Link>
+            </p>
           </div>
         </div>
         <Spacer y={6} />
