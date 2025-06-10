@@ -1,4 +1,4 @@
-import Navbar from "../components/adminmvt"
+import Navbaradm from "../components/adminmvt"
 export default function AdminLayout({
   children,
 }: {
@@ -6,7 +6,7 @@ export default function AdminLayout({
 }) {
   return (
     <div className="relative flex flex-col  h-screen">
-      <Navbar/>
+      <Navbaradm/>
       <main id="mainCont" className="container   mx-auto lg:mx-36   border shadow-lg rounded-xl mt-10 max-w-7xl px-6  flex-grow pt-8 pb-8" >
         {children}
       </main>
