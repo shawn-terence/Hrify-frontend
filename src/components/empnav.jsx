@@ -7,13 +7,11 @@ const Navbaradm = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const handleLogout = async () => {
     try {
-      
       const response = await fetch("https://hrify-backend.onrender.com/user/logout/", {
         method: "POST",
         headers: {
@@ -34,12 +32,25 @@ const Navbaradm = () => {
     }
   };
 
+  const links = [
+    { to: "/adm/admhome", label: "Home" },
+    { to: "/adm/attendance", label: "Attendance" },
+    { to: "/adm/leave", label: "Leave Requests" },
+    { to: "/adm/reports", label: "My Reports" },
+    { to: "/adm/users", label: "Employees" },
+    { to: "/adm/adduser", label: "Add Employee" },
+    { to: "/adm/projects", label: "Projects" },
+    { to: "/adm/leaves", label: "Leaves" },
+    { to: "/adm/report", label: "View Reports" },
+    { to: "/adm/attendancepage", label: "Attendances" },
+  ];
+
   return (
-    <div >
-      {/* Sidebar for desktop */}
-      <div className={`adsidebar ${menuOpen ? "open" : ""}`}>
+    <div>
+      {/* Desktop Sidebar */}
+      <div className="adsidebar">
         <div className="font-bold text-base flex flex-col">
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center">
             <Image
               id="Logo"
               width={80}
@@ -49,42 +60,14 @@ const Navbaradm = () => {
           </div>
           <div id="linkbox" className="text-base">
             <Spacer y={4} />
-            <Spacer y={2} />
-            <Link to="/adm/admhome">
-              <p className="text-base">Home</p>
-            </Link>
-            <Spacer y={2} />
-            <Link to="/adm/attendance">
-              <p className="text-base">Attendance</p>
-            </Link>
-            <Spacer y={2} />
-            <Link to="/adm/leave">
-              <p className="text-base">Leave Requests</p>
-            </Link>
-            <Spacer y={2} />
-            <Link to="/adm/reports">
-              <p className="text-base">My Reports</p>
-            </Link>
-            <Spacer y={4} />
-            <Spacer y={2} />
-            <Link to="/adm/users">
-              <p className="mb-4 text-base">Employees</p>
-            </Link>
-            <Link to="/adm/adduser">
-              <p className="mb-4 text-base">Add Employee</p>
-            </Link>
-            <Link to="/adm/projects">
-              <p className="mb-4 text-base">Projects</p>
-            </Link>
-            <Link to="/adm/leaves">
-              <p className="mb-4 text-base">Leaves</p>
-            </Link>
-            <Link to="/adm/report">
-              <p className="mb-4 text-base">View Reports</p>
-            </Link>
-            <Link to="/adm/attendancepage">
-              <p className="mb-4 text-base">Attendances</p>
-            </Link>
+            {links.map((link) => (
+              <React.Fragment key={link.to}>
+                <Link to={link.to}>
+                  <p className="text-base mb-2">{link.label}</p>
+                </Link>
+                <Spacer y={1} />
+              </React.Fragment>
+            ))}
           </div>
         </div>
         <Spacer y={6} />
@@ -105,10 +88,10 @@ const Navbaradm = () => {
         </div>
       </div>
 
-      {/* Navbar for mobile */}
+      {/* Mobile Navbar */}
       <div className="adnavbar-mobile">
-        <div className="adnavbar-header">
-          <div className="flex flex-row items-center gap-2 pt-2">
+        <div className="adnavbar-header flex items-center justify-between px-4 py-2">
+          <div className="flex flex-row items-center gap-2">
             <Image
               id="Logo"
               width={64}
@@ -119,54 +102,23 @@ const Navbaradm = () => {
               Hrify <span className="text-sm">admin</span>
             </p>
           </div>
-          <button className="menu-toggle" onClick={toggleMenu}>
+          <button className="menu-toggle text-white text-3xl" onClick={toggleMenu}>
             ☰
           </button>
         </div>
-        <Spacer y={2} />
+
         {menuOpen && (
-          <div className="addropdown">
+          <div className="addropdown px-4 py-2">
             <div className="font-bold text-base">
-              <p className="text-lg font-bold">My Links</p>
-              <Spacer y={2} />
-              <Link to="/adm/admhome">
-                <p className="text-base">Home</p>
-              </Link>
-              <Spacer y={2} />
-              <Link to="/adm/attendance">
-                <p className="mb-2 text-base">Attendance</p>
-              </Link>
-              <Spacer y={2} />
-              <Link to="/adm/leave">
-                <p className="mb-2 text-base">Leave Requests</p>
-              </Link>
-              <Spacer y={2} />
-              <Link to="/adm/reports">
-                <p className="mb-2 text-base">My Reports</p>
-              </Link>
-              <Spacer y={4} />
-              <Spacer y={2} />
-              <Link to="/adm/users">
-                <p className="mb-2 text-base">Employees</p>
-              </Link>
-              <Link to="/adm/adduser">
-                <p className="mb-2 text-base">Add Employee</p>
-              </Link>
-              <Link to="/adm/projects">
-                <p className="mb-2 text-base">Projects</p>
-              </Link>
-              <Link to="/adm/leaves">
-                <p className="mb-2 text-base">Leaves</p>
-              </Link>
-              <Link to="/adm/report">
-                <p className="mb-2 text-base">View Reports</p>
-              </Link>
-              <Link to="/adm/attendancepage">
-                <p className="mb-2 text-base">Attendances</p>
-              </Link>
-              <Link>
-              <p className="mb-2 text-base" onClick={handleLogout}>Logout</p>
-              </Link>
+              <p className="text-lg font-bold mb-2">My Links</p>
+              {links.map((link) => (
+                <Link to={link.to} key={link.to}>
+                  <p className="mb-2 text-base">{link.label}</p>
+                </Link>
+              ))}
+              <p className="mb-2 text-base cursor-pointer" onClick={handleLogout}>
+                Logout
+              </p>
             </div>
           </div>
         )}
